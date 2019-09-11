@@ -25,6 +25,7 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+*.xml
 MANIFEST
 
 # PyInstaller
@@ -121,3 +122,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# db
+*.db
+migrations/
