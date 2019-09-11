@@ -127,3 +127,7 @@ dmypy.json
 *.db
 migrations/
 logs/
+logs/ac.log.1
+logs/ac.log.2
+logs/ac.log.3
+logs/ac.log.4

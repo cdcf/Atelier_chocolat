@@ -1,17 +1,4 @@
-2019-09-10 17:46:16,218 ERROR: Exception on /edit_product/1 [POST] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1179, in _execute_context
-    context = constructor(dialect, self, conn, *args)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\default.py", line 719, in _init_compiled
-    param.append(processors[key](compiled_params[key]))
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1802, in process
-    value = _strict_as_bool(value)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1777, in _strict_as_bool
-    raise TypeError("Not a boolean value: %r" % value)
-TypeError: Not a boolean value: False
-
-The above exception was the direct cause of the following exception:
-
+2019-09-11 19:03:12,473 ERROR: Exception on /add_supplier [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -27,60 +14,46 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\products\routes.py", line 49, in edit_product
-    db.session.commit()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1027, in commit
-    self.transaction.commit()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 494, in commit
-    self._prepare_impl()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 473, in _prepare_impl
-    self.session.flush()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2459, in flush
-    self._flush(objects)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2597, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
-    raise value
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2557, in _flush
-    flush_context.execute()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
-    uow,
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 236, in save_obj
-    update,
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 996, in _emit_update_statements
-    statement, multiparams
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 988, in execute
-    return meth(self, multiparams, params)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1107, in _execute_clauseelement
-    distilled_params,
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1182, in _execute_context
-    e, util.text_type(statement), parameters, None, None
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1473, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\suppliers\routes.py", line 28, in add_supplier
+    form=form, suppliers=suppliers, pagination=pagination)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1179, in _execute_context
-    context = constructor(dialect, self, conn, *args)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\default.py", line 719, in _init_compiled
-    param.append(processors[key](compiled_params[key]))
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1802, in process
-    value = _strict_as_bool(value)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1777, in _strict_as_bool
-    raise TypeError("Not a boolean value: %r" % value)
-sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: False
-[SQL: UPDATE product SET origin=?, organic=?, fair_trade=?, crop=?, comment=? WHERE product.id = ?]
-[parameters: [{'origin': ('Guatemala',), 'comment': ('none',), 'organic': (False,), 'fair_trade': (False,), 'crop': ('2018',), 'product_id': 1}]]
-2019-09-10 17:49:57,245 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-10 17:52:23,756 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-10 17:53:53,235 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-10 17:57:04,318 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\suppliers\add_supplier.html", line 3, in top-level template code
+    {% import "_macros.html" as macros %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 78, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\suppliers\add_supplier.html", line 20, in block "app_content"
+    {% include 'suppliers/_supplier.html' %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\suppliers\_supplier.html", line 14, in top-level template code
+    <a href="{{ url_for('suppliers.edit_suppliers', id=supplier.id) }}"><button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a>
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'suppliers.edit_suppliers' with values ['id']. Did you mean 'suppliers.edit_supplier' instead?
