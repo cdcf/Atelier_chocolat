@@ -131,3 +131,12 @@ class ProductFamily(db.Model):
 
     def __repr__(self):
         return '<ProductFamily<>'.format(self.name)
+
+
+class Supplier(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), index=True, unique=True)
+    address = db.Column(db.Text())
+    email = db.Column(db.String(120))
+    telephone = db.Column(db.String(24))
+    website = db.Column(db.String(56))

@@ -1,0 +1,21 @@
+<table class="table table-hover">
+    <tr>
+        <td>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Nom: {{ supplier.name }}</p>
+                    <p>Adresse: {{ supplier.address }}</p>
+                    <p>Email: {{ supplier.email }}</p>
+                    <p>Téléphone: {{ supplier.telephone }}</p>
+                    <p>Site web: {{ supplier.website }}</p>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn btn-block">
+                        <a href="{{ url_for('suppliers.edit_supplier', id=supplier.id) }}"><button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a>
+                        <form method="post" action="{{ url_for('suppliers.delete_supplier', id=supplier.id) }}"><button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-trash"></span></button></form>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

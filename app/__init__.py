@@ -51,6 +51,9 @@ def create_app(config_class=Config):
     from app.product_families import bp as product_families_bp
     app.register_blueprint(product_families_bp)
 
+    from app.suppliers import bp as suppliers_bp
+    app.register_blueprint(suppliers_bp)
+
     if not app.debug:
         if app.config['MAIL_SERVER']:
             auth = None

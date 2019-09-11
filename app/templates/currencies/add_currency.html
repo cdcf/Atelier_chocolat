@@ -9,9 +9,14 @@
         <tr>
             <div class="row">
                 <div class="col-sm-6">
-                    {{ wtf.quick_form(form) }}
-                    <input type="checkbox" data-toggle="toggle" data-on="Oui" data-off="Non" data-size="mini">
-                    <input type="checkbox" id="default_curr">
+                    <form class="form form-horizontal" method="post" role="form">
+                        {{ form.hidden_tag() }}
+                        {{ wtf.form_errors(form, hiddens="only") }}
+                        {{ wtf.form_field(form.name) }}
+                        {{ wtf.form_field(form.description) }}
+                        {{ wtf.form_field(form.default_curr) }}
+                        {{ wtf.form_field(form.submit) }}
+                    </form>
                 </div>
             </div>
         </tr>
@@ -27,16 +32,3 @@
         </tr>
     </table>
 {% endblock %}
-<!--
-{% block scripts %}
-    {{ super() }}
-    {# Script to manage the Guest toggle button #}
-    <script>
-      $(function() {
-        $('#default_curr').bootstrapToggle({
-          on: 'Oui',
-          off: 'Non'
-        });
-      })
-    </script>
-{% endblock %} -->

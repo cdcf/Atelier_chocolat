@@ -23,7 +23,7 @@
                     {% else %}
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Sourcing<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Fournisseurs</a></li>
+                            <li><a href="{{ url_for('suppliers.add_supplier') }}">Fournisseurs</a></li>
                             <li><a href="#">Commandes</a></li>
                         </ul>
                     </li>
@@ -36,6 +36,7 @@
                     </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> Listes<b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('suppliers.list_of_suppliers') }}">Liste des fournisseurs</a></li>
                             <li><a href="{{ url_for('product_families.list_of_product_families') }}">Liste des familles produits</a></li>
                             <li><a href="{{ url_for('products.list_of_products') }}">Liste des produits</a></li>
                             <li><a href="{{ url_for('currencies.list_of_currencies') }}">Liste des devises</a></li>
