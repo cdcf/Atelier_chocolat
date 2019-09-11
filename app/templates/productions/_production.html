@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <tr>
+        <td>
+            <div class="row">
+                <div class="col-sm-6">
+                    <u>N° Lot: </u> {{ production.id }}<br>
+                    <u>Date:</u> {{ moment(production.date).format('LL') }}<br>
+                    <u>Production:</u> {{ production.name }}<br>
+                    {% autoescape false %}
+                    {{ production.comment | replace("\n", "<br/>") }}<br>
+                    {% endautoescape %}
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn btn-group">
+                        <a href="{{ url_for('productions.edit_production', id=production.id) }}"><button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a>
+                        <form method="post" action="{{ url_for('productions.delete_production', id=production.id) }}"><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></form>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

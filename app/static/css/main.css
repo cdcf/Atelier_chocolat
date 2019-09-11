@@ -1,0 +1,41 @@
+
+/* colorpicker styles */
+.colorpicker {
+    background-color: #fff;
+    border-radius: 5px 5px 5px 5px;
+    color: #000;
+    font-size: 12px;
+    position: absolute;
+    width: 460px;
+}
+#picker {
+    cursor: crosshair;
+    float: left;
+    margin: 10px;
+    border: 0;
+}
+.controls {
+    float: right;
+    margin: 10px;
+}
+.controls > div {
+    border: 1px solid #EEEEEE;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding: 5px;
+}
+.controls label {
+    float: left;
+}
+.controls > div input {
+    background-color: #fff;
+    border: 1px solid #EEEEEE;
+    color: #000;
+    float: right;
+    font-size: 10px;
+    height: 14px;
+    margin-left: 6px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 75px;
+}

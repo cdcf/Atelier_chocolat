@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block app_content %}
+    <h1>Liste des produits</h1>
+    <hr>
+    <table class="table table-hover">
+        <tr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="pagination">
+                        {% for product in products %}
+                            {% include 'products/_product.html' %}
+                        {% endfor %}
+                        {{ macros.pagination_widget(pagination, 'products.list_of_products') }}
+                    </div>
+                </div>
+            </div>
+        </tr>
+    </table>
+{% endblock %}

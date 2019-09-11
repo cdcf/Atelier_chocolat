@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block app_content %}
+    <h1>Liste des productions</h1>
+    <hr>
+    <table class="table table-hover">
+        <tr>
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ wtf.quick_form(form) }}
+                    <a href="{{ url_for('productions.list_of_productions') }}"><button type="submit" class="btn btn-warning">Effacer la sélection</button></a>
+                </div>
+            </div>
+            </div>
+        </tr>
+        <tr>
+            <div class="col-sm-6">
+                <div class="pagination">
+                    {% for production in productions %}
+                        {% include 'productions/_production.html' %}
+                    {% endfor %}
+                    <div class="pagination">
+                        {{ macros.pagination_widget(pagination, 'productions.list_of_productions') }}
+                    </div>
+                </div>
+            </div>
+        </tr>
+    </table>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script type="text/javascript">
+    $(function () {
+        $('#from_date_picker').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+        $('#to_date_picker').datetimepicker({
+            format: 'DD/MM/YYYY',
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#from_date_picker").on("dp.change", function (e) {
+            $('#to_date_picker').data("DateTimePicker").minDate(e.date);
+        });
+        $("#to_date_picker").on("dp.change", function (e) {
+            $('#from_date_picker').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+    </script>
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    {% if title %}{{ title }} - L&rsquo;Atelier Chocolat{% else %}Bienvenue à l&rsquo;Atelier Chocolat{% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}">Dashboard</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.is_anonymous %}
+                        <li><a href="{{ url_for('auth.login') }}">S&rsquo;identifier</a></li>
+                    {% else %}
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Sourcing<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Fournisseurs</a></li>
+                            <li><a href="#">Commandes</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Journal de Fabrications<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('productions.add_production') }}">Ajouter une Production</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{ url_for('productions.list_of_productions') }}">Liste des Productions</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> Listes<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('product_families.list_of_product_families') }}">Liste des familles produits</a></li>
+                            <li><a href="{{ url_for('products.list_of_products') }}">Liste des produits</a></li>
+                            <li><a href="{{ url_for('currencies.list_of_currencies') }}">Liste des devises</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> Config<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('product_families.add_product_family') }}">Famille Produits</a></li>
+                            <li><a href="{{ url_for('products.add_product') }}">Produits</a></li>
+                            <li><a href="{{ url_for('currencies.add_currency') }}">Devise</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profil utilisateur</a></li>
+                            <li><a href="{{ url_for('main.list_of_users') }}">Liste des Utilisateurs</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('auth.logout') }}">Déconnection</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+        {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <!-- <strong>Title</strong> --> {{ message }}
+              </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {# script to customize the date picker #}
+    <script src="{{ url_for('static', filename='bootstrap-datetimepicker.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datetimepicker.min.css') }}" />
+
+    {# script to customize the check boxes into data toggle #}
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+{% endblock %}

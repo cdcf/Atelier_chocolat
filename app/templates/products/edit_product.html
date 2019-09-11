@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block app_content %}
+    <h1>Editer un Produit</h1>
+    <hr>
+    <table class="table table-hover">
+        <tr>
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ wtf.quick_form(form) }}
+                </div>
+                <div class="col-sm-6">
+                    <!-- colorpicker element -->
+                    <div class="colorpicker" style="display:none; margin-top: 20px;">
+                        <canvas id="picker" var="1" width="300" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </tr>
+        <tr>
+            <div class="col-sm-6">
+                <div class="pagination">
+                    {% for product in products %}
+                        {% include 'products/_product.html' %}
+                    {% endfor %}
+                    {{ macros.pagination_widget(pagination, 'products.edit_product', id=id) }}
+                </div>
+            </div>
+        </tr>
+    </table>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {# Script to manage the Guest toggle button #}
+
+
+    <!-- add styles -->
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" type="text/css" />
+
+    <!-- add scripts -->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+    <script>
+    $(function(){
+    // create canvas and context objects
+    var canvas = document.getElementById('picker');
+    var ctx = canvas.getContext('2d');
+
+    // drawing active image
+    var image = new Image();
+    image.onload = function () {
+        ctx.drawImage(image, 0, 0, image.width, image.height); // draw the image on the canvas
+    }
+
+    // select desired colorwheel
+    var imageSrc = '{{ url_for('static', filename='image/colorwheel.png') }}';
+
+    image.src = imageSrc;
+
+    var hexValue = "#fff";
+
+    $('#picker').mousemove(function (e) { // mouse move handler
+        // get coordinates of current position
+        var canvasOffset = $(canvas).offset();
+        var canvasX = Math.floor(e.pageX - canvasOffset.left);
+        var canvasY = Math.floor(e.pageY - canvasOffset.top);
+
+        // get current pixel
+        var imageData = ctx.getImageData(canvasX, canvasY, 1, 1);
+        var pixel = imageData.data;
+
+        // update preview color
+        var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
+        $('#colour').css('backgroundColor', pixelColor);
+
+        var dColor = pixel[2] + 256 * pixel[1] + 65536 * pixel[0];
+        hexValue = '#' + ('0000' + dColor.toString(16)).substr(-6);
+    });
+    $('#picker').click(function (e) { // click event handler
+        $('.colorpicker').fadeToggle("fast", "linear");
+        $('#colour').val(hexValue)
+    });
+    $('#colour').click(function (e) { // preview click
+        $('.colorpicker').fadeToggle("fast", "linear");
+    });
+});
+</script>
+{% endblock %}

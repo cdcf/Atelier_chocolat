@@ -1,0 +1,83 @@
+2019-09-10 17:57:15,768 ERROR: Exception on /edit_product/1 [POST] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\default.py", line 719, in _init_compiled
+    param.append(processors[key](compiled_params[key]))
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1802, in process
+    value = _strict_as_bool(value)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1777, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+TypeError: Not a boolean value: True
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\products\routes.py", line 49, in edit_product
+    db.session.commit()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 1027, in commit
+    self.transaction.commit()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 494, in commit
+    self._prepare_impl()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 473, in _prepare_impl
+    self.session.flush()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2459, in flush
+    self._flush(objects)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2597, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\util\compat.py", line 153, in reraise
+    raise value
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\session.py", line 2557, in _flush
+    flush_context.execute()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 589, in execute
+    uow,
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 236, in save_obj
+    update,
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 996, in _emit_update_statements
+    statement, multiparams
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1182, in _execute_context
+    e, util.text_type(statement), parameters, None, None
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1473, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1179, in _execute_context
+    context = constructor(dialect, self, conn, *args)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\default.py", line 719, in _init_compiled
+    param.append(processors[key](compiled_params[key]))
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1802, in process
+    value = _strict_as_bool(value)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1777, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % value)
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: True
+[SQL: UPDATE product SET origin=?, organic=?, fair_trade=?, crop=?, comment=? WHERE product.id = ?]
+[parameters: [{'comment': ('none',), 'origin': ('Guatemala',), 'crop': ('2018',), 'organic': (True,), 'fair_trade': (False,), 'product_id': 1}]]
+2019-09-10 17:57:51,917 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]

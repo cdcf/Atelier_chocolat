@@ -1,0 +1,24 @@
+<table class="table table-hover">
+    <tr>
+        <td>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Catégorie de Produit: {{ product.product_product.name }}</p>
+                    <p>Nom de Produit: {{ product.name }}</p>
+                    <p>Origine: {{ product.origin }}</p>
+                    <p>Bio: {{ product.organic }}</p>
+                    <p>Equitable: {{ product.fair_trade }}</p>
+                    <p>Année de récolte: {{ product.crop }}</p>
+                    <p>Commentaires: {{ product.comment }}</p>
+                    <p>Couleur: <span style="background-color: {{ product.colour }};">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn btn-block">
+                        <a href="{{ url_for('products.edit_product', id=product.id) }}"><button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a>
+                        <form method="post" action="{{ url_for('products.delete_product', id=product.id) }}"><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></form>
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>

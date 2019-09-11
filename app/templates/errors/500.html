@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h1>Une erreur est survenue</h1>
+    <p>Le service informatique a été informé. Désolé pour le désagrément.</p>
+    <p><a href="{{ url_for('main.index') }}">Retour</a></p>
+{% endblock %}

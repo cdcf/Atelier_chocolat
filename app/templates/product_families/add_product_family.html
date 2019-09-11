@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block app_content %}
+    <h1>Ajouter une famille de produits</h1>
+    <hr>
+    <table class="table table-hover">
+        <tr>
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ wtf.quick_form(form) }}
+                </div>
+            </div>
+        </tr>
+        <tr>
+            <div class="col-sm-6">
+                <div class="pagination">
+                    {% for product_family in product_families %}
+                        {% include 'product_families/_product_family.html' %}
+                    {% endfor %}
+                    {{ macros.pagination_widget(pagination, 'product_families.add_product_family') }}
+                </div>
+            </div>
+        </tr>
+    </table>
+{% endblock %}

@@ -1,0 +1,17 @@
+<table class="table table-hover">
+    <tr>
+        <td width="256px"><img src="{{ user.avatar(64) }}"></td>
+        <td>
+            <h1>Bonjour, {{ user.first_name }} {{ user.second_name }}, alias {{ user.username }}!</h1>
+            {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+            <p>{{ user.followers.count() }} suiveurs, {{ user.followed.count() }} suivis</p>
+            {% if user == current_user %}
+                <p><a href="{{ url_for('main.edit_profile') }}">Modifier votre profil</a></p>
+            {% elif not current_user.is_following(user) %}
+                <p><a href="{{ url_for('main.follow', username=user.username) }}">Suivre</a></p>
+            {% else %}
+                <p><a href="{{ url_for('main.unfollow', username=user.username) }}">Ne plus suivre</a></p>
+            {% endif %}
+        </td>
+    </tr>
+</table>
