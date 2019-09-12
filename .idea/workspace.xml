@@ -56,8 +56,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Flask Main" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -148,7 +148,9 @@
       <workItem from="1568185896872" duration="1744000" />
       <workItem from="1568188785862" duration="1973000" />
       <workItem from="1568193112722" duration="4770000" />
-      <workItem from="1568204734812" duration="7020000" />
+      <workItem from="1568204734812" duration="7216000" />
+      <workItem from="1568274113003" duration="7718000" />
+      <workItem from="1568295816737" duration="2405000" />
     </task>
     <servers />
   </component>
