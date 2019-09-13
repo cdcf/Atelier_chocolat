@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request, current_ap
 from flask_login import current_user, login_required
 from app import db
 from app.productions.forms import ProductionForm, EditProductionForm, ListProductionForm
-from app.models import Production
+from app.models import Production, ProductionLine
 from app.productions import bp
 
 

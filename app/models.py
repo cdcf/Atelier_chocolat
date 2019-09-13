@@ -104,7 +104,7 @@ class ProductionLine(db.Model):
     production_id = db.Column(db.Integer, db.ForeignKey('production.id'))
     product_families = db.relationship('ProductFamily', backref='production_line_product_family', lazy='dynamic')
     products = db.relationship('Product', backref='production_line_product', lazy='dynamic')
-    product_quantity = db.Column(db.DECIMAL(2, 0))
+    quantity = db.Column(db.DECIMAL(2, 0))
 
     def __repr__(self):
         return '<ProductionLine {}>'.format(self.id)
