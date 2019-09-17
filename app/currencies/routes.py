@@ -21,7 +21,7 @@ def add_currency():
         db.session.add(currency)
         db.session.commit()
         flash('Votre devise a bien été créée', 'success')
-        return redirect(url_for('currencies.add_currency'))
+        return redirect(url_for('currencies.list_of_currencies'))
     elif request.method != "GET":
         flash_errors(form)
     page = request.args.get('page', 1, type=int)
@@ -64,7 +64,7 @@ def delete_currency(id):
     db.session.delete(currency)
     db.session.commit()
     flash('La devise a bien été supprimée.', 'success')
-    return redirect(url_for('currencies.add_currency'))
+    return redirect(url_for('currencies.list_of_currencies'))
 
 
 @bp.route('/list_of_currencies')

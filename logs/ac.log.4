@@ -1,4 +1,4 @@
-2019-09-11 14:03:17,663 ERROR: Exception on /edit_currency/2 [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
+2019-09-16 17:42:50,824 ERROR: Exception on /edit_currency/2 [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -16,57 +16,99 @@ Traceback (most recent call last):
     return func(*args, **kwargs)
   File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\currencies\routes.py", line 57, in edit_currency
     currencies=currencies, pagination=pagination, id=id)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 138, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 830, in get_template
-    return self._load_template(name, self.make_globals(globals))
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 804, in _load_template
-    template = self.loader.load(self, name, globals)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\loaders.py", line 125, in load
-    code = environment.compile(source, name, filename)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 591, in compile
-    self.handle_exception(exc_info, source_hint=source_hint)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 35, in template
-    {% endblock %}
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
-    return Parser(self, source, name, encode_filename(filename)).parse()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
-    result = nodes.Template(self.subparse(), lineno=1)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
-    return getattr(self, 'parse_' + self.stream.current.value)()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 384, in parse_macro
-    drop_needle=True)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 170, in parse_statements
-    self.fail_eof(end_tokens)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 104, in fail_eof
-    return self._fail_ut_eof(None, stack, lineno)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 90, in _fail_ut_eof
-    self.fail(' '.join(message), lineno)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 59, in fail
-    raise exc(msg, lineno, self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endmacro'. The innermost block that needs to be closed is 'macro'.
-2019-09-11 14:04:34,439 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 14:08:21,266 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 14:09:44,049 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 14:12:02,755 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 14:13:00,149 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 14:28:31,959 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 15:22:00,261 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 15:23:13,131 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 15:24:27,459 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 15:24:50,678 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 15:25:56,642 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 15:26:20,438 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 15:28:05,792 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 18:12:42,629 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:79]
-2019-09-11 18:57:02,116 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
-2019-09-11 18:57:07,112 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
-2019-09-11 18:57:14,849 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 3, in top-level template code
+    {% import "_macros.html" as macros %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 78, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 14, in block "app_content"
+    <a href="{{ url_for('currencies.list_of_currenciess') }}"><button type="submit" class="btn btn-warning">Effacer la sélection</button></a>
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'currencies.list_of_currenciess'. Did you mean 'currencies.list_of_currencies' instead?
+2019-09-16 17:42:52,119 ERROR: Exception on /edit_currency/2 [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\currencies\routes.py", line 57, in edit_currency
+    currencies=currencies, pagination=pagination, id=id)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 3, in top-level template code
+    {% import "_macros.html" as macros %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 78, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 14, in block "app_content"
+    <a href="{{ url_for('currencies.list_of_currenciess') }}"><button type="submit" class="btn btn-warning">Effacer la sélection</button></a>
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'currencies.list_of_currenciess'. Did you mean 'currencies.list_of_currencies' instead?

@@ -1,4 +1,4 @@
-2019-09-11 19:03:12,473 ERROR: Exception on /add_supplier [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
+2019-09-16 17:55:17,298 ERROR: Exception on /edit_currency/5 [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\suppliers\routes.py", line 28, in add_supplier
-    form=form, suppliers=suppliers, pagination=pagination)
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\currencies\routes.py", line 57, in edit_currency
+    currencies=currencies, pagination=pagination, id=id)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 140, in render_template
     ctx.app,
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -28,7 +28,7 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\suppliers\add_supplier.html", line 3, in top-level template code
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 3, in top-level template code
     {% import "_macros.html" as macros %}
   File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
@@ -42,18 +42,60 @@ Traceback (most recent call last):
     {% block content -%}
   File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 78, in block "content"
     {% block app_content %}{% endblock %}
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\suppliers\add_supplier.html", line 20, in block "app_content"
-    {% include 'suppliers/_supplier.html' %}
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\suppliers\_supplier.html", line 14, in top-level template code
-    <a href="{{ url_for('suppliers.edit_suppliers', id=supplier.id) }}"><button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a>
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 14, in block "app_content"
+    <button type="submit" class="btn btn-danger"><form method="post" action="{{ url_for('currencies.delete_currency', id=currency.id) }}"><span class="glyphicon glyphicon-trash"></span></form></button>
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'currency' is undefined
+2019-09-16 17:56:04,088 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-16 17:57:18,899 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-16 17:57:21,935 ERROR: Exception on /edit_currency/6 [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
     reraise(exc_type, exc_value, tb)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
     raise value
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'suppliers.edit_suppliers' with values ['id']. Did you mean 'suppliers.edit_supplier' instead?
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\currencies\routes.py", line 57, in edit_currency
+    currencies=currencies, pagination=pagination, id=id)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 3, in top-level template code
+    {% import "_macros.html" as macros %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 23, in block "body"
+    {% block content -%}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 78, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 14, in block "app_content"
+    <form method="post" action="{{ url_for('currencies.delete_currency', id=currency.id) }}"><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></form>
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'currency' is undefined
+2019-09-16 17:57:36,466 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]

@@ -8,15 +8,8 @@
     <table class="table table-hover">
         <tr>
             <div class="row">
-                <div class="col-sm-6">
-                    <form class="form form-horizontal" method="post" role="form">
-                        {{ form.hidden_tag() }}
-                        {{ wtf.form_errors(form, hiddens="only") }}
-                        {{ wtf.form_field(form.name) }}
-                        {{ wtf.form_field(form.description) }}
-                        {{ wtf.form_field(form.default_curr) }}
-                        {{ wtf.form_field(form.submit) }}
-                    </form>
+                <div class="col-sm-4">
+                    {{ wtf.quick_form(form) }}
                 </div>
             </div>
         </tr>
@@ -32,3 +25,4 @@
         </tr>
     </table>
 {% endblock %}
+

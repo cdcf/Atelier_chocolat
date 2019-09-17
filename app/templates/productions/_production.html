@@ -3,12 +3,12 @@
         <td>
             <div class="row">
                 <div class="col-sm-6">
-                    <u>N° Lot: </u> {{ production.id }}<br>
-                    <u>Date:</u> {{ moment(production.date).format('LL') }}<br>
-                    <u>Production:</u> {{ production.name }}<br>
+                    <p>N° Lot: {{ production.id }}<br>
+                    Date: {{ moment(production.date).format('LL') }}<br>
+                    Production: {{ production.name }}<br>
                     {% autoescape false %}
                     {{ production.comment | replace("\n", "<br/>") }}<br>
-                    {% endautoescape %}
+                    {% endautoescape %}</p>
                 </div>
                 <div class="col-sm-2">
                     <div class="btn btn-group">

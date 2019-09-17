@@ -1,4 +1,4 @@
-2019-09-11 19:04:01,745 ERROR: Exception on /add_supplier [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
+2019-09-16 17:58:03,144 ERROR: Exception on /edit_currency/6 [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,8 +14,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\suppliers\routes.py", line 28, in add_supplier
-    form=form, suppliers=suppliers, pagination=pagination)
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\currencies\routes.py", line 57, in edit_currency
+    currencies=currencies, pagination=pagination, id=id)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 140, in render_template
     ctx.app,
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 120, in _render
@@ -28,7 +28,7 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\suppliers\add_supplier.html", line 3, in top-level template code
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 3, in top-level template code
     {% import "_macros.html" as macros %}
   File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
@@ -42,18 +42,38 @@ Traceback (most recent call last):
     {% block content -%}
   File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 78, in block "content"
     {% block app_content %}{% endblock %}
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\suppliers\add_supplier.html", line 20, in block "app_content"
-    {% include 'suppliers/_supplier.html' %}
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\suppliers\_supplier.html", line 14, in top-level template code
-    <a href="{{ url_for('suppliers.edit_supplier', id=supplier.id) }}"><button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a>
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'suppliers.edit_suppliers' with values ['id']. Did you mean 'suppliers.edit_supplier' instead?
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\edit_currency.html", line 14, in block "app_content"
+    <form method="post" action="{{ url_for('currencies.delete_currency', id=currency.id) }}"><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></form>
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 430, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'currency' is undefined
+2019-09-16 17:58:37,415 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-16 17:59:47,718 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-16 18:00:53,585 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-16 18:03:54,256 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-16 18:04:12,956 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-16 18:06:19,690 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-16 18:08:00,200 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-16 18:09:24,912 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-16 18:12:38,164 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 09:57:37,166 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 10:05:23,763 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 10:05:41,129 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 10:06:04,462 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 10:06:18,296 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 10:06:37,813 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 10:47:14,490 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:05:24,280 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:11:14,166 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:23:13,352 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:24:13,338 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:24:48,524 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:25:23,057 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:26:27,433 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:26:56,182 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:29:53,494 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:30:42,750 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:32:41,159 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 11:33:35,196 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 13:55:46,532 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-17 13:56:07,444 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]

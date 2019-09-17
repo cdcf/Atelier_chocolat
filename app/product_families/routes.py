@@ -12,7 +12,7 @@ def add_product_family():
     form = ProductFamilyForm()
     if form.validate_on_submit():
         product_family = ProductFamily(name=form.name.data,
-                                     icon=form.icon.data)
+                                       icon=form.icon.data)
         db.session.add(product_family)
         db.session.commit()
         flash('La famille de produit a été créée.', 'success')

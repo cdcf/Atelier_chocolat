@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -14,7 +14,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url_for('main.index') }}">Dashboard</a>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}"><span class="glyphicon glyphicon-home"></span></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -23,36 +23,37 @@
                     {% else %}
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Sourcing<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ url_for('suppliers.add_supplier') }}">Fournisseurs</a></li>
-                            <li><a href="#">Commandes</a></li>
+                            <li><a href="{{ url_for('suppliers.add_supplier') }}">Ajouter un fournisseur</a></li>
+                            <li><a href="#">Ajouter une commande</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Journal de Fabrications<b class="caret"></b></a>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Production<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ url_for('productions.add_production') }}">Ajouter une Production</a></li>
-                            <li class="divider"></li>
+                            <li class="nav-divider"></li>
                             <li><a href="{{ url_for('productions.list_of_productions') }}">Liste des Productions</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> Listes<b class="caret"></b></a>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url_for('product_families.add_product_family') }}"><span class="glyphicon glyphicon-tree-deciduous"></span> Famille Produits</a></li>
+                            <li><a href="{{ url_for('products.add_product') }}"><span class="glyphicon glyphicon-grain"></span> Produits</a></li>
+                            <li><a href="{{ url_for('currencies.add_currency') }}"><span class="glyphicon glyphicon-tags"></span> Devises</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Rapports<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ url_for('suppliers.list_of_suppliers') }}">Liste des fournisseurs</a></li>
                             <li><a href="{{ url_for('product_families.list_of_product_families') }}">Liste des familles produits</a></li>
                             <li><a href="{{ url_for('products.list_of_products') }}">Liste des produits</a></li>
                             <li><a href="{{ url_for('currencies.list_of_currencies') }}">Liste des devises</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> Config<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url_for('product_families.add_product_family') }}">Famille Produits</a></li>
-                            <li><a href="{{ url_for('products.add_product') }}">Produits</a></li>
-                            <li><a href="{{ url_for('currencies.add_currency') }}">Devise</a></li>
-                            <li class="divider"></li>
-                            <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profil utilisateur</a></li>
+                            <li class="nav-divider"></li>
                             <li><a href="{{ url_for('main.list_of_users') }}">Liste des Utilisateurs</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ url_for('auth.logout') }}">Déconnection</a></li>
+                    <li><a href="{{ url_for('main.user', username=current_user.username) }}"><span class="glyphicon glyphicon-user"></span></a></li>
+
+                    <li><a href="{{ url_for('auth.logout') }}"><span class="glyphicon glyphicon-log-out" alt="Log-out"></span></a></li>
                     {% endif %}
                 </ul>
             </div>
