@@ -1,67 +1,161 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block head %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>L'Atelier Chocolat - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="/static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="/static/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="/static/css/sb-admin.css" rel="stylesheet">
+
+{% endblock %}
+
 {% block title %}
     {% if title %}{{ title }} - L&rsquo;Atelier Chocolat{% else %}Bienvenue à l&rsquo;Atelier Chocolat{% endif %}
 {% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-inverse">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ url_for('main.index') }}"><span class="glyphicon glyphicon-home"></span></a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    {% if current_user.is_anonymous %}
-                        <li><a href="{{ url_for('auth.login') }}">S&rsquo;identifier</a></li>
-                    {% else %}
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Sourcing<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url_for('suppliers.add_supplier') }}">Ajouter un fournisseur</a></li>
-                            <li><a href="#">Ajouter une commande</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Production<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url_for('productions.add_production') }}">Ajouter une Production</a></li>
-                            <li class="nav-divider"></li>
-                            <li><a href="{{ url_for('productions.list_of_productions') }}">Liste des Productions</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span><b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url_for('product_families.add_product_family') }}"><span class="glyphicon glyphicon-tree-deciduous"></span> Famille Produits</a></li>
-                            <li><a href="{{ url_for('products.add_product') }}"><span class="glyphicon glyphicon-grain"></span> Produits</a></li>
-                            <li><a href="{{ url_for('currencies.add_currency') }}"><span class="glyphicon glyphicon-tags"></span> Devises</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Rapports<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url_for('suppliers.list_of_suppliers') }}">Liste des fournisseurs</a></li>
-                            <li><a href="{{ url_for('product_families.list_of_product_families') }}">Liste des familles produits</a></li>
-                            <li><a href="{{ url_for('products.list_of_products') }}">Liste des produits</a></li>
-                            <li><a href="{{ url_for('currencies.list_of_currencies') }}">Liste des devises</a></li>
-                            <li class="nav-divider"></li>
-                            <li><a href="{{ url_for('main.list_of_users') }}">Liste des Utilisateurs</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{ url_for('main.user', username=current_user.username) }}"><span class="glyphicon glyphicon-user"></span></a></li>
+ <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-                    <li><a href="{{ url_for('auth.logout') }}"><span class="glyphicon glyphicon-log-out" alt="Log-out"></span></a></li>
-                    {% endif %}
-                </ul>
-            </div>
+    <a class="navbar-brand mr-1" href="{{ url_for('main.index') }}"><span class="glyphicon glyphicon-home"> L'atelier Chocolat</span></a>
+
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navbar Search -->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
-    </nav>
+      </div>
+    </form>
+
+    <!-- top Navbar
+    <ul class="navbar-nav ml-auto ml-md-0">
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+          <span class="badge badge-danger">9+</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow mx-1">
+        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-envelope fa-fw"></i>
+          <span class="badge badge-danger">7</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="#">Activity Log</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+        </div>
+      </li>
+    </ul> -->
+
+  </nav>
+
 {% endblock %}
 
 {% block content %}
+  <div id="wrapper">
+        <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url_for('main.index') }}">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      {% if current_user.is_anonymous %}
+      {% else %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-shopping-basket"></i>
+          <span>Sourcing</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            <a class="dropdown-item" href="#">Ajouter Achat</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ url_for('productions.add_production') }}">Ajouter Production</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Rapports</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+        <h6 class="dropdown-header">Transactions:</h6>
+            <a class="dropdown-item" href="{{ url_for('productions.list_of_productions') }}">Liste des Productions</a>
+            <div class="dropdown-divider"></div>
+        <h6 class="dropdown-header">Données:</h6>
+            <a class="dropdown-item" href="{{ url_for('suppliers.list_of_suppliers') }}">Fournisseurs</a>
+            <a class="dropdown-item" href="{{ url_for('product_families.list_of_product_families') }}">Familles Produits</a>
+            <a class="dropdown-item" href="{{ url_for('products.list_of_products') }}">Produits</a>
+            <a class="dropdown-item" href="{{ url_for('currencies.list_of_currencies') }}">Devises</a>
+        </div>
+      </li>
+      {% endif %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Administration</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          {% if not current_user.is_anonymous %}
+          <h6 class="dropdown-header">Données:</h6>
+            <a class="dropdown-item" href="{{ url_for('suppliers.add_supplier') }}">Fournisseur</a>
+            <a class="dropdown-item" href="{{ url_for('product_families.add_product_family') }}">Famille Produits</a>
+            <a class="dropdown-item" href="{{ url_for('products.add_product') }}">Produits</a>
+            <a class="dropdown-item" href="{{ url_for('currencies.add_currency') }}">Devises</a>
+            <div class="dropdown-divider"></div>
+          <h6 class="dropdown-header">Profils:</h6>
+            <a class="dropdown-item" href="{{ url_for('main.user', username=current_user.username) }}">Profil</a>
+            <a class="dropdown-item" href="{{ url_for('main.list_of_users') }}">Liste profils</a>
+            <a class="dropdown-item" href="{{ url_for('auth.reset_password_request') }}">Modifier password</a>
+            <a class="dropdown-item" href="{{ url_for('auth.logout') }}">Déconnection</a>
+            <div class="dropdown-divider"></div>
+          {% else %}
+          <h6 class="dropdown-header">Profils:</h6>
+            <a class="dropdown-item" href="{{ url_for('auth.login') }}">S&rsquo;identifier</a>
+          {% endif %}
+        </div>
+      </li>
+    </ul>
+
+    <!-- Container to manage categories of messages -->
     <div class="container">
         {% with messages = get_flashed_messages(with_categories=true) %}
         <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
@@ -78,6 +172,10 @@
         {# application content needs to be provided in the app_content block #}
         {% block app_content %}{% endblock %}
     </div>
+    <!-- /#container messages -->
+
+  </div>
+  <!-- /#wrapper -->
 {% endblock %}
 
 {% block scripts %}
@@ -87,8 +185,24 @@
     <script src="{{ url_for('static', filename='bootstrap-datetimepicker.min.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datetimepicker.min.css') }}" />
 
-    {# script to customize the check boxes into data toggle #}
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+      <!-- Bootstrap core JavaScript-->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="{{ url_for('static', filename='vendor/chart.js/Chart.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/datatables/jquery.dataTables.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="{{ url_for('static', filename='js/sb-admin.min.js') }}"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="{{ url_for('static', filename='/js/demo/datatables-demo.js') }}"></script>
+  <script src="{{ url_for('static', filename='/js/demo/chart-area-demo.js') }}"></script>
+
 
 {% endblock %}

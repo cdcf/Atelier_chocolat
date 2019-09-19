@@ -10,8 +10,15 @@
         <tr>
             <div class="row">
                 <div class="col-sm-4">
-                    {{ wtf.quick_form(form) }}
-                    <form method="post" action="{{ url_for('currencies.delete_currency', id=id) }}"><button type="submit" class="btn btn-danger" id="delete"><span class="glyphicon glyphicon-trash"></span></button></form>
+                    <form class="form form-horizontal" method="post" role="form">
+                        {{ form.hidden_tag() }}
+                        {{ wtf.form_errors(form, hiddens="only") }}
+                        {{ wtf.form_field(form.name) }}
+                        {{ wtf.form_field(form.description) }}
+                        {{ wtf.form_field(form.default_curr) }}
+                        {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }}
+                    <form method="post" action="{{ url_for('currencies.delete_currency', id=id) }}"><button type="submit" class="btn btn-outline-danger" id="delete"><i class="fas fa-fw fa-trash"></i></button></form>
+                    </form>
                 </div>
             </div>
         </tr>

@@ -13,6 +13,7 @@ def add_supplier():
     if form.validate_on_submit():
         supplier = Supplier(name=form.name.data,
                             address=form.address.data,
+                            contact=form.contact.data,
                             email=form.email.data,
                             telephone=form.telephone.data,
                             website=form.website.data)
@@ -35,7 +36,11 @@ def edit_supplier(id):
     form = EditSupplierForm(supplier.name)
     if form.validate_on_submit():
         supplier.name = form.name.data
-        supplier.icon = form.icon.data
+        supplier.address = form.address.data
+        supplier.contact = form.contact.data
+        supplier.email = form.email.data
+        supplier.telephone = form.telephone.data
+        supplier.website = form.website.data
         db.session.add(supplier)
         db.session.commit()
         flash('Vos modifications ont été enregistrées.', 'success')
@@ -43,6 +48,7 @@ def edit_supplier(id):
     elif request.method == 'GET':
         form.name.data = supplier.name
         form.address.data = supplier.address
+        form.contact.data = supplier.contact
         form.email.data = supplier.email
         form.telephone.data = supplier.telephone
         form.website.data = supplier.website

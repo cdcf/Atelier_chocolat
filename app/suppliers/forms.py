@@ -7,6 +7,7 @@ from app.models import Supplier
 class SupplierForm(FlaskForm):
     name = StringField('Nom', validators=[DataRequired()])
     address = StringField('Adresse', validators=[DataRequired()])
+    contact = StringField('Contact')
     email = StringField('Email', validators=[Email()])
     telephone = StringField('Téléphone')
     website = StringField('Site web', validators=[URL()])
@@ -21,6 +22,7 @@ class SupplierForm(FlaskForm):
 class EditSupplierForm(FlaskForm):
     name = StringField('Nom', validators=[DataRequired()])
     address = StringField('Adresse', validators=[DataRequired()])
+    contact = StringField('Contact')
     email = StringField('Email', validators=[Email()])
     telephone = StringField('Téléphone')
     website = StringField('Site web', validators=[URL()])

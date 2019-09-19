@@ -9,7 +9,18 @@
         <tr>
             <div class="row">
                 <div class="col-sm-4">
-                    {{ wtf.quick_form(form) }}
+                    <form class="form form-horizontal" method="post" role="form">
+                        {{ form.hidden_tag() }}
+                        {{ wtf.form_errors(form, hiddens="only") }}
+                        {{ wtf.form_field(form.name) }}
+                        {{ wtf.form_field(form.address) }}
+                        {{ wtf.form_field(form.contact) }}
+                        {{ wtf.form_field(form.email) }}
+                        {{ wtf.form_field(form.telephone) }}
+                        {{ wtf.form_field(form.website) }}
+                        {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }}
+                        <form method="post" action="{{ url_for('suppliers.delete_supplier', id=supplier.id) }}"><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></form>
+                    </form>
                 </div>
             </div>
         </tr>

@@ -5,14 +5,14 @@
                 <div class="col-sm-6">
                     <p>Nom: {{ supplier.name }}<br>
                     Adresse: {{ supplier.address }}<br>
+                    Contact: {{ supplier.contact }}<br>
                     Email: {{ supplier.email }}<br>
                     Téléphone: {{ supplier.telephone }}<br>
                     Site web: {{ supplier.website }}</p>
                 </div>
                 <div class="col-sm-2">
                     <div class="btn btn-block">
-                        <a href="{{ url_for('suppliers.edit_supplier', id=supplier.id) }}"><button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a>
-                        <form method="post" action="{{ url_for('suppliers.delete_supplier', id=supplier.id) }}"><button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-trash"></span></button></form>
+                        <a href="{{ url_for('suppliers.edit_supplier', id=supplier.id) }}"><button class="btn btn-outline-primary"><i class="fas fa-fw fa-pen"></i></button></a>
                     </div>
                 </div>
             </div>

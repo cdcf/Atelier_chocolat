@@ -6,7 +6,15 @@
     <hr>
     <div class="row">
         <div class="col-md-4">
-            {{ wtf.quick_form(form) }}
+            <form class="form form-horizontal" method="post" role="form">
+                {{ form.hidden_tag() }}
+                {{ wtf.form_errors(form, hiddens="only") }}
+                {{ wtf.form_field(form.username) }}
+                {{ wtf.form_field(form.first_name) }}
+                {{ wtf.form_field(form.second_name) }}
+                {{ wtf.form_field(form.about_me) }}
+                {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }}
+            </form>
         </div>
     </div>
 {% endblock %}

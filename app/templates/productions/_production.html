@@ -12,8 +12,7 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="btn btn-group">
-                        <a href="{{ url_for('productions.edit_production', id=production.id) }}"><button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button></a>
-                        <form method="post" action="{{ url_for('productions.delete_production', id=production.id) }}"><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></form>
+                        <a href="{{ url_for('productions.edit_production', id=production.id) }}"><button class="btn btn-outline-primary"><i class="fas fa-fw fa-pen"></i></button></a>
                     </div>
                 </div>
             </div>

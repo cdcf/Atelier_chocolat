@@ -9,8 +9,8 @@
         <tr>
             <div class="row">
                 <div class="col-sm-4">
-                    {{ wtf.quick_form(form) }}
-                    <a href="{{ url_for('productions.list_of_productions') }}"><button type="submit" class="btn btn-warning">Effacer la sélection</button></a>
+                    {{ wtf.quick_form(form, button_map={'submit' : 'primary'}) }}
+                    <a href="{{ url_for('productions.list_of_productions') }}"><button type="submit" class="btn btn-outline-info">Effacer la sélection</button></a>
                 </div>
             </div>
             </div>
