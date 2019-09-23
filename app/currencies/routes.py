@@ -21,7 +21,7 @@ def add_currency():
         db.session.add(currency)
         db.session.commit()
         flash('Votre devise a bien été créée', 'success')
-        return redirect(url_for('currencies.list_of_currencies'))
+        return redirect(url_for('currencies.add_currency'))
     elif request.method != "GET":
         flash_errors(form)
     page = request.args.get('page', 1, type=int)

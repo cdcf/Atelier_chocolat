@@ -1,18 +1,13 @@
-<table class="table table-hover">
+<!-- DataTables Example -->
+<tbody>
     <tr>
+        <td>{{ currency.name }}</td>
+        <td>{{ currency.description }}</td>
+        <td>{{ currency.default_curr }}</td>
         <td>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Code devise: {{ currency.name }}<br>
-                    Description: {{ currency.description }}<br>
-                    Devise par défaut: {{ currency.default_curr }}</p>
-                </div>
-                <div class="col-sm-2">
-                    <div class="btn btn-block">
-                        <a href="{{ url_for('currencies.edit_currency', id=currency.id) }}"><button class="btn btn-outline-primary" type="button"><i class="fas fa-fw fa-pen"></i></button></a>
-                    </div>
-                </div>
+            <div class="btn btn-block">
+                <a href="{{ url_for('currencies.edit_currency', id=currency.id) }}"><button class="btn btn-outline-primary" type="button"><i class="fas fa-fw fa-pen"></i></button></a>
             </div>
         </td>
     </tr>
-</table>
+</tbody>
