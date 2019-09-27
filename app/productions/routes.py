@@ -2,8 +2,8 @@ from sqlalchemy import func
 from flask import render_template, flash, redirect, url_for, request, current_app
 from flask_login import current_user, login_required
 from app import db
-from app.productions.forms import ProductionForm, EditProductionForm, ListProductionForm
-from app.models import Production, ProductionLine
+from app.productions.forms import ProductionForm, EditProductionForm, ListProductionForm, ProductionLineForm
+from app.models import Production, ProductionLine, ProductFamily, Product
 from app.productions import bp
 
 
@@ -93,3 +93,33 @@ def delete_production(id):
     db.session.commit()
     flash('Cette production a bien été supprimée.', 'success')
     return redirect(url_for('productions.add_production'))
+
+
+@bp.route('/add_production_line', methods=['GET', 'POST'])
+@login_required
+def add_production_line():
+    form = ProductionLineForm()
+    form.product_family_id.choices = [(row.id, row.name) for row in ProductFamily.query.all()]
+    form.product_id.choices = [(row.id, row.name) for row in Product.query.all()]
+    if request.method == 'GET':
+        page = request.args.get('page', 1, type=int)
+        pagination = current_user.my_productions().paginate(page, 4, False)
+        production_lines = pagination.items
+        return render_template('productions/add_production_line.html', title='Ajouter des produits', form=form,
+                               production_lines=production_lines, pagination=pagination)
+    if form.validate_on_submit():
+        production_line = ProductionLine(name=form.name.data,
+                                         production_id=form.production_id.data.id,
+                                         product_family_id=form.product_family_id.data.id,
+                                         product_id=form.product_id.data.id,
+                                         quantity=form.quantity.data)
+        db.session.add(production_line)
+        db.session.commit()
+        flash('Les produits ont été ajoutés', 'success')
+        return redirect(url_for('productions.add_production_line'))
+    page = request.args.get('page', 1, type=int)
+    pagination = current_user.my_expenses().paginate(page, 4, False)
+    production_lines = pagination.items
+    return render_template('productions/add_production_line.html', title='Ajouter des produits', form=form,
+                           production_lines=production_lines, pagination=pagination)
+#it is required to add the template
