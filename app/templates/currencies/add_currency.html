@@ -3,60 +3,59 @@
 
 
 {% block app_content %}
-    <div id="wrapper">
-        <div id="content-wrapper">
-            <div class="container-fluid">
+<div id="wrapper">
+    <div id="content-wrapper">
+        <div class="container-fluid">
 
-                <!-- Breadcrumbs-->
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="{{ url_for('main.index') }}">Dashboard</a>
-                    </li>
-                    <li class="breadcrumb-item active"><b>Ajouter une devise</b></li>
-                </ol>
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ url_for('main.index') }}">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active"><b>Ajouter une devise</b></li>
+            </ol>
 
-                <!-- add currency quick form-->
-                <table class="table table-hover">
-                    <tr>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
-                            </div>
+            <!-- add currency quick form-->
+            <table class="table table-hover">
+                <tr>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
                         </div>
-                    </tr>
-                </table>
-
-                    <!-- add list of existing currencies-->
-                <div class="card mb-3">
-                  <div class="card-header">
-                    <i class="fas fa-table"></i>
-                    liste des devises</div>
-                  <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                              <tr>
-                                <th>Devise</th>
-                                <th>Description</th>
-                                <th>Défaut</th>
-                                <th>Action</th>
-                              </tr>
-                            </thead>
-
-                                    {% for currency in currencies %}
-                                        {% include 'currencies/_currency.html' %}
-                                    {% endfor %}
-
-                        </table>
                     </div>
-                  </div>
+                </tr>
+            </table>
+
+                <!-- add list of existing currencies-->
+            <div class="card mb-3">
+              <div class="card-header">
+                <i class="fas fa-table"></i>
+                liste des devises</div>
+              <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                          <tr>
+                            <th>Devise</th>
+                            <th>Description</th>
+                            <th>Défaut</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+
+                                {% for currency in currencies %}
+                                    {% include 'currencies/_currency.html' %}
+                                {% endfor %}
+
+                    </table>
                 </div>
-
-            <!-- /.container-fluid -->
+              </div>
             </div>
-        <!-- /.content-wrapper -->
-        </div>
-    <!-- /.#wrapper -->
-    </div>
-{% endblock %}
 
+        <!-- /.container-fluid -->
+        </div>
+    <!-- /.content-wrapper -->
+    </div>
+<!-- /.#wrapper -->
+</div>
+{% endblock %}

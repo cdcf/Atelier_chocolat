@@ -1,62 +1,23 @@
-2019-09-19 15:42:36,074 ERROR: Exception on /index [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\main\routes.py", line 13, in index
-    return render_template('index.html', title='Home')
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 140, in render_template
-    ctx.app,
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 120, in _render
-    rv = template.render(context)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
-    return original_render(self, *args, **kwargs)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\index.html", line 2, in top-level template code
-    {% import 'bootstrap/wtf.html' as wtf %}
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
-    {%- block html %}
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
-    {% block body -%}
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 28, in block "body"
-    {% block scripts %}
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 189, in block "scripts"
-    <script src="{{ url_for('static/vendor/jquery', filename='jquery.min.js') }}"></script>
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'static/vendor/jquery' with values ['filename']. Did you mean 'static' instead?
-2019-09-19 15:44:13,511 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
-2019-09-19 17:00:47,524 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
-2019-09-19 17:07:19,923 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
-2019-09-19 17:07:23,014 ERROR: Exception on /add_currency [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
+2019-09-23 16:55:41,440 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 16:59:23,876 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 17:00:23,663 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 17:14:42,344 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 17:18:18,710 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 17:19:50,391 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 17:20:13,941 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 17:22:33,450 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 17:25:35,973 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 17:26:46,488 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 17:28:01,583 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 18:01:11,538 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 18:03:51,021 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 18:04:41,121 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 18:08:01,921 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-23 18:12:25,804 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:10:10,673 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:11:42,663 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:12:11,963 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:12:21,820 ERROR: Exception on /add_currency [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -86,32 +47,53 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\_macros.html", line 1, in template
-    {% import "bootstrap.css" %}
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 1005, in render
-    return concat(self.root_render_func(self.new_context(vars)))
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\add_currency.html", line 3, in top-level template code
-    {% import "_macros.html" as macros %}
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\_macros.html", line 1, in template
-    {% import "bootstrap.css" %}
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 497, in _parse
-    return Parser(self, source, name, encode_filename(filename)).parse()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 901, in parse
-    result = nodes.Template(self.subparse(), lineno=1)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 883, in subparse
-    rv = self.parse_statement()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 130, in parse_statement
-    return getattr(self, 'parse_' + self.stream.current.value)()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\parser.py", line 300, in parse_import
-    self.stream.expect('name:as')
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\lexer.py", line 384, in expect
-    self.name, self.filename)
-jinja2.exceptions.TemplateSyntaxError: expected token 'as', got 'end of statement block'
-2019-09-19 17:16:19,022 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
-2019-09-19 17:17:08,982 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
-2019-09-19 17:18:17,056 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
-2019-09-23 16:43:00,010 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\add_currency.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 25, in block "body"
+    {% block content -%}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 173, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\add_currency.html", line 47, in block "app_content"
+    {% include 'currencies/_currency.html' %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\_currency.html", line 15, in top-level template code
+    {% block scripts %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\currencies\_currency.html", line 16, in block "scripts"
+    {{ super() }}
+jinja2.exceptions.UndefinedError: there is no parent block called 'scripts'.
+2019-09-24 09:13:05,271 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:13:44,238 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:17:04,419 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:32:31,447 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:39:37,132 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:40:26,964 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:41:20,049 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:43:46,682 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:45:06,032 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:45:49,513 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 09:49:37,615 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 10:13:04,820 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-24 10:14:02,534 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:01:41,195 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:02:22,095 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:04:29,344 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:06:39,776 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:09:40,442 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:10:40,509 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:11:55,392 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:13:46,708 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:15:21,591 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:15:43,641 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:16:23,491 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:16:38,058 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:17:34,058 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:18:19,526 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:19:07,211 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+2019-09-27 11:19:48,162 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
