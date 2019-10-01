@@ -122,7 +122,7 @@ def add_production_item():
         db.session.add(production_item)
         db.session.commit()
         flash('Les produits ont été ajoutés', 'success')
-        return redirect(url_for('productions.add_production_item'))
+        return redirect(url_for('productions.edit_production', id=production_item.production_id))
     page = request.args.get('page', 1, type=int)
     pagination = current_user.my_productions().paginate(page, 4, False)
     production_items = pagination.items

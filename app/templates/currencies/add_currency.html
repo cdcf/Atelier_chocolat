@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import 'bootstrap/wtf.html' as wtf %}
+{% import "_macros.html" as macros %}
 
 
 {% block app_content %}
@@ -46,6 +47,7 @@
                                 {% for currency in currencies %}
                                     {% include 'currencies/_currency.html' %}
                                 {% endfor %}
+                    {{ macros.pagination_widget(pagination, 'currencies.add_currency') }}
 
                     </table>
                 </div>

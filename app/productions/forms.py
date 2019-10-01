@@ -44,7 +44,7 @@ class ProductionItemForm(FlaskForm):
     production_id = QuerySelectField('Production', validators=[DataRequired()],
                                      query_factory=get_productions,
                                      allow_blank=True,
-                                     get_label='name',
+                                     get_label='id',
                                      blank_text=u'-- Choisissez une production --',
                                      id='select_production')
     product_family_id = QuerySelectField('Famille de Produit', validators=[DataRequired()],

@@ -19,9 +19,9 @@
                         <form method="post" action="{{ url_for('productions.delete_production', id=id) }}"><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></form>
                     </form>
                 </div>
+            <!-- Icon Cards-->
             <div class="col-sm-8">
-                <!-- Icon Cards-->
-                <div class="row">
+            <div class="row">
             <div class="col-xl-3 col-sm-6 mb-3">
             <div class="card text-dark bg-warning o-hidden h-100">
               <div class="card-body">
@@ -140,26 +140,21 @@
             </div>
             </div>
         </tr>
-        <tr>
-            <div class="col-sm-6">
-                <div class="pagination">
-                    {% for production in productions %}
-                        {% include 'productions/_production.html' %}
-                    {% endfor %}
-                {{ macros.pagination_widget(pagination, 'productions.edit_production', id=id) }}
-                </div>
-            </div>
-        </tr>
     </table>
 {% endblock %}
 
 {% block scripts %}
     {{ super() }}
+    {{ moment.include_moment() }}
+    {# script to customize the date picker #}
+    <script src="{{ url_for('static', filename='bootstrap-datetimepicker.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datetimepicker.min.css') }}" />
     {# Script to manage the date picker #}
     <script type="text/javascript">
         $(function () {
             $('#date_picker').datetimepicker({
-                format: 'DD/MM/YYYY'
+                format: 'DD/MM/YYYY',
+                locale: 'fr'
             });
         });
     </script>

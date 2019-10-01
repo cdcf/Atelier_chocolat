@@ -17,7 +17,7 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['cedric.dacostafaro@gmail.com']
     PRODUCTIONS_PER_PAGE = 3
-    CURRENCIES_PER_PAGE = 15
+    CURRENCIES_PER_PAGE = 3
     PRODUCTS_PER_PAGE = 3
     PRODUCT_FAMILIES_PER_PAGE = 3
     SUPPLIERS_PER_PAGE = 3
