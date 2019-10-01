@@ -6,15 +6,15 @@ from app.models import Product, ProductFamily, Production
 import datetime
 
 
-def get_production():
+def get_productions():
     return Production.query.order_by(Production.id)
 
 
-def get_product_family():
+def get_product_families():
     return ProductFamily.query.order_by(ProductFamily.name)
 
 
-def get_product():
+def get_products():
     return Product.query.order_by(Product.name)
 
 
@@ -40,21 +40,24 @@ class ListProductionForm(FlaskForm):
     submit = SubmitField('Rechercher')
 
 
-class ProductionLineForm(FlaskForm):
+class ProductionItemForm(FlaskForm):
     production_id = QuerySelectField('Production', validators=[DataRequired()],
-                                         query_factory=get_production,
-                                         allow_blank=True,
-                                         get_label='id',
-                                         blank_text=u'-- Choisissez une production --')
+                                     query_factory=get_productions,
+                                     allow_blank=True,
+                                     get_label='name',
+                                     blank_text=u'-- Choisissez une production --',
+                                     id='select_production')
     product_family_id = QuerySelectField('Famille de Produit', validators=[DataRequired()],
-                                         query_factory=get_product_family,
+                                         query_factory=get_product_families,
                                          allow_blank=True,
                                          get_label='name',
-                                         blank_text=u'-- Choisissez une famille --')
+                                         blank_text=u'-- Choisissez une famille --',
+                                         id='select_product_family')
     product_id = QuerySelectField('Produit', validators=[DataRequired()],
-                                  query_factory=get_product,
+                                  query_factory=get_products,
                                   allow_blank=True,
                                   get_label='name',
-                                  blank_text=u'-- Choisissez une produit --')
+                                  blank_text=u'-- Choisissez une produit --',
+                                  id='select_product')
     quantity = DecimalField('Quantité', validators=[DataRequired()])
     submit = SubmitField('Ajouter')

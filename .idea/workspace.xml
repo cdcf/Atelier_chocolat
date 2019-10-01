@@ -47,7 +47,7 @@
         <item name="app.db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="product_category: table" type="3d80ac25:SqliteImplModel$Table" />
+        <item name="production_item: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -56,9 +56,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Flask Main" />
-        <option value="HTML File" />
         <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -176,6 +176,16 @@
       <workItem from="1569593405835" duration="1477000" />
       <workItem from="1569594935046" duration="334000" />
       <workItem from="1569595284635" duration="2000" />
+      <workItem from="1569835129279" duration="1779000" />
+      <workItem from="1569836941873" duration="1588000" />
+      <workItem from="1569840899998" duration="1782000" />
+      <workItem from="1569842712965" duration="772000" />
+      <workItem from="1569846299449" duration="614000" />
+      <workItem from="1569849245980" duration="1771000" />
+      <workItem from="1569851088618" duration="1781000" />
+      <workItem from="1569853702964" duration="677000" />
+      <workItem from="1569857711760" duration="1777000" />
+      <workItem from="1569859519351" duration="634000" />
     </task>
     <servers />
   </component>

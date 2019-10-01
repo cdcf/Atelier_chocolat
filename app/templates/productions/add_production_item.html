@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block app_content %}
+    <h1>Ajouter une produit</h1>
+    <hr>
+    <table class="table table-hover">
+        <tr>
+            <div class="row">
+                <div class="col-sm-4">
+                    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+                </div>
+            </div>
+        </tr>
+
+    </table>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+
+    {# Script to manage the drop down select fields and links between them #}
+    <script charset="utf-8" type="text/javascript">
+
+        $(function() {
+
+        // jQuery selection for the select boxes
+        var dropdown = {
+            production_id: $('#select_production'),
+            product_family_id: $('#select_product_family'),
+            product_id: $('#select_product')
+        };
+
+        // call to update on load
+        updateProducts_id();
+
+        // function to call XHR and update Product drop down
+        function updateProducts_id() {
+            var send = {
+                product_family_id: dropdown.product_family_id.val()
+            };
+            dropdown.product_id.attr('disabled', 'disabled');
+            dropdown.product_id.empty();
+            $.getJSON("{{ url_for('productions._get_products') }}", send, function(data) {
+                data.forEach(function(item) {
+                    dropdown.product_id.append(
+                        $('<option>', {
+                            value: item[0],
+                            text: item[1]
+                        })
+                    );
+                });
+                dropdown.product_id.removeAttr('disabled');
+            });
+        }
+
+        // event listener to product family drop down change
+        dropdown.product_family_id.on('change', function() {
+            updateProducts_id();
+        });
+    });
+
+    </script>
+{% endblock %}

@@ -93,29 +93,29 @@ class Production(db.Model):
     comment = db.Column(db.Text())
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    production_lines = db.relationship('ProductionLine', backref='production_production_line', lazy='dynamic')
+    production_items = db.relationship('ProductionItem', backref='production_production_item', lazy='dynamic')
 
     def __repr__(self):
         return '<Production {}>'.format(self.name)
 
 
-class ProductionLine(db.Model):
+class ProductionItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     production_id = db.Column(db.Integer, db.ForeignKey('production.id'))
-    product_families = db.relationship('ProductFamily', backref='production_line_product_family', lazy='dynamic')
-    products = db.relationship('Product', backref='production_line_product', lazy='dynamic')
+    product_family_id = db.Column(db.Integer, db.ForeignKey('product_family.id'))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
     quantity = db.Column(db.DECIMAL(2, 0))
 
     def __repr__(self):
-        return '<ProductionLine {}>'.format(self.id)
+        return '<ProductionItem {}>'.format(self.id)
 
 
 class ProductFamily(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), index=True, unique=True)
     icon = db.Column(db.String(32))
-    product = db.relationship('Product', backref='product_product', lazy='dynamic')
-    production_line_id = db.Column(db.Integer, db.ForeignKey('production_line.id'))
+    products = db.relationship('Product', backref='product_product', lazy='dynamic')
+    production_items = db.relationship('ProductionItem', backref='product_family_production_item', lazy='dynamic')
 
     def __repr__(self):
         return '<ProductFamily<>'.format(self.name)
@@ -131,7 +131,7 @@ class Product(db.Model):
     comment = db.Column(db.Text())
     colour = db.Column(db.String(16))
     product_family_id = db.Column(db.Integer, db.ForeignKey('product_family.id'))
-    production_line_id = db.Column(db.Integer, db.ForeignKey('production_line.id'))
+    production_items = db.relationship('ProductionItem', backref='product_production_item', lazy='dynamic')
 
     def __repr__(self):
         return '<Product>'.format(self.name)
