@@ -32,6 +32,10 @@
 
 {% block scripts %}
     {{ super() }}
+    {{ moment.include_moment() }}
+    {# script to customize the date picker #}
+    <script src="{{ url_for('static', filename='bootstrap-datetimepicker.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datetimepicker.min.css') }}" />
     <script type="text/javascript">
     $(function () {
         $('#from_date_picker').datetimepicker({

@@ -2,15 +2,17 @@
     <tr>
         <td>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <p>Catégorie de Produit: {{ product.product_product.name }}<br>
                     Nom de Produit: {{ product.name }}<br>
                     Origine: {{ product.origin }}<br>
-                    Bio: {{ product.organic }}<br>
-                    Equitable: {{ product.fair_trade }}<br>
+                    Bio: {{ product.organic }}</p>
+                </div>
+                <div class="col-sm-6">
+                    <p>Equitable: {{ product.fair_trade }}<br>
                     Année de récolte: {{ product.crop }}<br>
-                    Commentaires: {{ product.comment }}<br>
-                    Couleur: <span style="background-color: {{ product.colour }};">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                    Couleur: <span style="background-color: {{ product.colour }};">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+                    Commentaires: {{ product.comment }}</p>
                 </div>
                 <div class="col-sm-2">
                     <div class="btn btn-block">

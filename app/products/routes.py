@@ -24,8 +24,8 @@ def add_product():
         flash('Le produit a été créé.', 'success')
         return redirect(url_for('products.add_product'))
     page = request.args.get('page', 1, type=int)
-    pagination = Product.query.order_by(Product.name.asc()).paginate(page, current_app.config['PRODUCTS_PER_PAGE'],
-                                                                     False)
+    pagination = Product.query.order_by(Product.product_family_id.asc(), Product.name.asc()).paginate(
+        page, current_app.config['PRODUCTS_PER_PAGE'], False)
     products = pagination.items
     return render_template('products/add_product.html', title='Ajouter un Produit', form=form, products=products,
                            pagination=pagination)
@@ -59,8 +59,8 @@ def edit_product(id):
         form.comment.data = product.comment
         form.colour.data = product.colour
     page = request.args.get('page', 1, type=int)
-    pagination = Product.query.order_by(Product.name.asc()).paginate(page, current_app.config['PRODUCTS_PER_PAGE'],
-                                                                     False)
+    pagination = Product.query.order_by(Product.product_family_id.asc(), Product.name.asc()).paginate(
+        page, current_app.config['PRODUCTS_PER_PAGE'], False)
     products = pagination.items
     return render_template('products/edit_product.html', title='Edit a Product', form=form, products=products,
                            pagination=pagination, id=id)
@@ -80,8 +80,8 @@ def delete_product(id):
 @login_required
 def list_of_products():
     page = request.args.get('page', 1, type=int)
-    pagination = Product.query.order_by(Product.name.asc()).paginate(page, current_app.config['PRODUCTS_PER_PAGE'],
-                                                                     False)
+    pagination = Product.query.order_by(Product.product_family_id.asc(), Product.name.asc()).paginate(
+        page, current_app.config['PRODUCTS_PER_PAGE'], False)
     products = pagination.items
     return render_template('products/list_of_products.html', title='List des produits', products=products,
                            pagination=pagination)

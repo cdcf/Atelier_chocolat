@@ -140,6 +140,17 @@
             </div>
             </div>
         </tr>
+        <tr>
+            <div class="col-sm-6">
+                <div class="pagination">
+                    {% for production in productions %}
+                        {% include 'productions/_production.html' %}
+                    {% endfor %}
+                {{ macros.pagination_widget(pagination, 'productions.edit_production', id=id) }}
+                </div>
+            </div>
+        </tr>
+
     </table>
 {% endblock %}
 

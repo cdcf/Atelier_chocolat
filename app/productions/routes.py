@@ -2,7 +2,8 @@ from sqlalchemy import func
 from flask import render_template, flash, redirect, url_for, request, current_app, jsonify
 from flask_login import current_user, login_required
 from app import db
-from app.productions.forms import ProductionForm, EditProductionForm, ListProductionForm, ProductionItemForm
+from app.productions.forms import ProductionForm, EditProductionForm, ListProductionForm, ProductionItemForm, \
+    ViewProductionForm
 from app.models import Production, ProductionItem, ProductFamily, Product
 from app.productions import bp
 
@@ -52,10 +53,16 @@ def edit_production(id):
         form.date.data = production.date
         form.comment.data = production.comment
     page = request.args.get('page', 1, type=int)
-    pagination = current_user.my_productions().paginate(page, current_app.config['PRODUCTIONS_PER_PAGE'], False)
+    pagination = Production.query.order_by(Production.id.desc()).paginate(page, current_app.config['PRODUCTIONS_PER_PAGE'], False)
     productions = pagination.items
     return render_template('productions/edit_production.html', title='Editer une Production', form=form,
                            productions=productions, pagination=pagination, id=id)
+
+
+@bp.route('/view_production/<id>', methods=['GET'])
+@login_required
+def view_production(id):
+    return render_template('productions/view_production.html', title='Afficher une production', id=id)
 
 
 @bp.route('/list_of_productions', methods=['GET', 'POST'])
@@ -110,7 +117,7 @@ def add_production_item():
     form.product_id.choices = [(row.id, row.name) for row in Product.query.all()]
     if request.method == 'GET':
         page = request.args.get('page', 1, type=int)
-        pagination = current_user.my_productions().paginate(page, 4, False)
+        pagination = ProductionItem.query.order_by(ProductionItem.id.asc()).paginate(page, 4, False)
         production_items = pagination.items
         return render_template('productions/add_production_item.html', title='Ajouter des produits', form=form,
                                production_items=production_items, pagination=pagination)
@@ -124,7 +131,7 @@ def add_production_item():
         flash('Les produits ont été ajoutés', 'success')
         return redirect(url_for('productions.edit_production', id=production_item.production_id))
     page = request.args.get('page', 1, type=int)
-    pagination = current_user.my_productions().paginate(page, 4, False)
+    pagination = ProductionItem.query.order_by(ProductionItem.id.asc()).paginate(page, 4, False)
     production_items = pagination.items
     return render_template('productions/add_production_item.html', title='Ajouter des produits', form=form,
                            production_items=production_items, pagination=pagination)

@@ -12,16 +12,21 @@
                     <form class="form form-horizontal" method="post" role="form">
                         {{ form.hidden_tag() }}
                         {{ wtf.form_errors(form, hiddens="only") }}
+                        {{ wtf.form_field(form.product_family_id) }}
                         {{ wtf.form_field(form.name) }}
-                        {{ wtf.form_field(form.description) }}
-                        {{ wtf.form_field(form.default_curr) }}
+                        {{ wtf.form_field(form.origin) }}
+                        {{ wtf.form_field(form.crop) }}
+                        {{ wtf.form_field(form.colour) }}
+                        {{ wtf.form_field(form.comment) }}
+                        {{ wtf.form_field(form.organic) }}
+                        {{ wtf.form_field(form.fair_trade) }}
                         {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }}
                         <form method="post" action="{{ url_for('products.delete_product', id=id) }}"><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></form>
                     </form>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <!-- colorpicker element -->
-                    <div class="colorpicker" style="display:none; margin-top: 20px;">
+                    <div class="colorpicker" style="display:none">
                         <canvas id="picker" var="1" width="300" height="300"></canvas>
                     </div>
                 </div>

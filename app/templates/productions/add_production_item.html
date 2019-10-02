@@ -13,6 +13,15 @@
                 </div>
             </div>
         </tr>
+        <tr>
+            <div class="col-sm-6">
+                <div class="pagination">
+                    {% for production_item in production_items %}
+                        {% include 'productions/_production_item.html' %}
+                    {% endfor %}
+                </div>
+            </div>
+        </tr>
 
     </table>
 {% endblock %}

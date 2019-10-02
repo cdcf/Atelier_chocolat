@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms import StringField, SubmitField, BooleanField, TextAreaField
+from wtforms.validators import DataRequired, ValidationError, Length
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from app.models import Product, ProductFamily
 
@@ -20,7 +20,7 @@ class ProductForm(FlaskForm):
     organic = BooleanField('Bio')
     fair_trade = BooleanField('Equitable')
     crop = StringField('Année de récolte')
-    comment = StringField('Commentaires')
+    comment = TextAreaField('Commentaires', validators=[Length(min=0, max=256)])
     colour = StringField('Choisissez une couleur')
     submit = SubmitField('Enregistrer')
 

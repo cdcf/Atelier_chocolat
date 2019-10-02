@@ -34,6 +34,16 @@ class EditProductionForm(FlaskForm):
     submit = SubmitField('Enregistrer')
 
 
+class ViewProductionForm(FlaskForm):
+    production_id = QuerySelectField('Production', validators=[DataRequired()],
+                                     query_factory=get_productions,
+                                     allow_blank=True,
+                                     get_label='id',
+                                     blank_text=u'-- Choisissez une production --',
+                                     id='select_production')
+    submit = SubmitField('Rechercher')
+
+
 class ListProductionForm(FlaskForm):
     date_from = DateField('Du', format='%d/%m/%Y', validators=[DataRequired()], id='from_date_picker')
     date_to = DateField('Au', format='%d/%m/%Y', validators=[DataRequired()], id='to_date_picker')
