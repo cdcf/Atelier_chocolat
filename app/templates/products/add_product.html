@@ -9,19 +9,7 @@
         <tr>
             <div class="row">
                 <div class="col-sm-4">
-                    <form class="form form-horizontal" method="post" role="form">
-                        {{ form.hidden_tag() }}
-                        {{ wtf.form_errors(form, hiddens="only") }}
-                        {{ wtf.form_field(form.product_family_id) }}
-                        {{ wtf.form_field(form.name) }}
-                        {{ wtf.form_field(form.origin) }}
-                        {{ wtf.form_field(form.crop) }}
-                        {{ wtf.form_field(form.colour) }}
-                        {{ wtf.form_field(form.comment) }}
-                        {{ wtf.form_field(form.organic) }}
-                        {{ wtf.form_field(form.fair_trade) }}
-                        {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }}
-                    </form>
+                    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
                 </div>
                 <div class="col-sm-4">
                     <!-- colorpicker element -->

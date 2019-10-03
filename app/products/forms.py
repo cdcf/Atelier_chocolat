@@ -11,17 +11,17 @@ def get_product_family():
 
 class ProductForm(FlaskForm):
     product_family_id = QuerySelectField('Famille de Produit', validators=[DataRequired()],
-                                  query_factory=get_product_family,
-                                  allow_blank=True,
-                                  get_label='name',
-                                  blank_text=u'-- Choisissez une famille --')
+                                           query_factory=get_product_family,
+                                           allow_blank=True,
+                                           get_label='name',
+                                           blank_text=u'-- Choisissez une catégorie --')
     name = StringField('Produit', validators=[DataRequired()])
     origin = StringField('Origine', validators=[DataRequired()])
+    crop = StringField('Année de récolte')
+    colour = StringField('Choisissez une couleur')
+    comment = StringField('Commentaires', validators=[Length(min=0, max=256)])
     organic = BooleanField('Bio')
     fair_trade = BooleanField('Equitable')
-    crop = StringField('Année de récolte')
-    comment = TextAreaField('Commentaires', validators=[Length(min=0, max=256)])
-    colour = StringField('Choisissez une couleur')
     submit = SubmitField('Enregistrer')
 
     def validate_name(self, name):
@@ -38,11 +38,11 @@ class EditProductForm(FlaskForm):
                                            blank_text=u'-- Choisissez une catégorie --')
     name = StringField('Produit', validators=[DataRequired()])
     origin = StringField('Origine', validators=[DataRequired()])
+    crop = StringField('Année de récolte')
+    colour = StringField('Choisissez une couleur')
+    comment = StringField('Commentaires', validators=[Length(min=0, max=256)])
     organic = BooleanField('Bio')
     fair_trade = BooleanField('Equitable')
-    crop = StringField('Année de récolte')
-    comment = StringField('Commentaires')
-    colour = StringField('Choisissez une couleur')
     submit = SubmitField('Enregistrer')
 
     def __init__(self, original_name, *args, **kwargs):

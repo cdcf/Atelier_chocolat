@@ -9,14 +9,8 @@
         <tr>
             <div class="row">
                 <div class="col-sm-4">
-                    <form class="form form-horizontal" method="post" role="form">
-                        {{ form.hidden_tag() }}
-                        {{ wtf.form_errors(form, hiddens="only") }}
-                        {{ wtf.form_field(form.name) }}
-                        {{ wtf.form_field(form.icon) }}
-                        {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }}
+                        {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
                         <form method="post" action="{{ url_for('product_families.delete_product_family', id=id) }}"><button type="submit" class="btn btn-outline-danger" id="delete"><i class="fas fa-fw fa-trash"></i></button></form>
-                    </form>
                 </div>
             </div>
         </tr>
