@@ -3,9 +3,10 @@
         <td>
             <div class="row">
                 <div class="col-sm-6">
-                    <p>Famille: {{ production_item.product_family_production_item.name }}<br>
+                    <p>Lot# / Production: {{ production_item.production_id }} - {{ production_item.production_production_item.name }}<br>
+                    Famille: {{ production_item.product_family_production_item.name }}<br>
                     Produit: {{ production_item.product_production_item.name }}<br>
-                    Quantité: {{ production_item.quantity }}<br></p>
+                    Quantité: {{ production_item.quantity }} kg</p>
                 </div>
 
             </div>

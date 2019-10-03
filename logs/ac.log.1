@@ -1,11 +1,4 @@
-2019-10-02 15:45:17,260 ERROR: Exception on /add_product [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 227, in __getattr__
-    return getattr(self.comparator, key)
-AttributeError: 'Comparator' object has no attribute 'name'
-
-During handling of the above exception, another exception occurred:
-
+2019-10-03 14:28:14,110 ERROR: Exception on /view_production_item [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
 Traceback (most recent call last):
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -21,99 +14,51 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\products\routes.py", line 27, in add_product
-    pagination = Product.query.order_by(Product.product_product.name.asc(), Product.name.asc()).paginate(page, current_app.config['PRODUCTS_PER_PAGE'],
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 236, in __getattr__
-    key,
-AttributeError: Neither 'InstrumentedAttribute' object nor 'Comparator' object associated with Product.product_product has an attribute 'name'
-2019-10-02 15:45:40,598 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
-2019-10-02 15:45:44,607 ERROR: Exception on /add_product [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\productions\routes.py", line 75, in view_production_item
+    production_items=production_items, pagination=pagination, form=form)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\environment.py", line 780, in handle_exception
     reraise(exc_type, exc_value, tb)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\products\routes.py", line 27, in add_product
-    pagination = Product.query.order_by(Product.product_product.asc(), Product.name.asc()).paginate(page, current_app.config['PRODUCTS_PER_PAGE'],
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 967, in asc
-    return self.operate(asc_op)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\attributes.py", line 217, in operate
-    return op(self.comparator, *other, **kwargs)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 1361, in asc_op
-    return a.asc()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 967, in asc
-    return self.operate(asc_op)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\operators.py", line 230, in operate
-    raise NotImplementedError(str(op))
-NotImplementedError: <function asc_op at 0x03A9CDF8>
-2019-10-02 15:47:19,333 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
-2019-10-02 15:47:20,109 ERROR: Exception on /add_product [GET] [in c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py:1891]
-Traceback (most recent call last):
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1249, in _execute_context
-    cursor, statement, parameters, context
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\default.py", line 552, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such column: product_family.name
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
-    raise value
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\products\routes.py", line 28, in add_product
-    False)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 496, in paginate
-    items = self.limit(per_page).offset((page - 1) * per_page).all()
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3178, in all
-    return list(self)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3334, in __iter__
-    return self._execute_and_instances(context)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3359, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 988, in execute
-    return meth(self, multiparams, params)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1107, in _execute_clauseelement
-    distilled_params,
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1253, in _execute_context
-    e, statement, parameters, cursor, context
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1473, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1249, in _execute_context
-    cursor, statement, parameters, context
-  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\sqlalchemy\engine\default.py", line 552, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: product_family.name
-[SQL: SELECT product.id AS product_id, product.name AS product_name, product.origin AS product_origin, product.organic AS product_organic, product.fair_trade AS product_fair_trade, product.crop AS product_crop, product.comment AS product_comment, product.colour AS product_colour, product.product_family_id AS product_product_family_id 
-FROM product ORDER BY product_family.name ASC, product.name ASC
- LIMIT ? OFFSET ?]
-[parameters: (10, 0)]
-(Background on this error at: http://sqlalche.me/e/e3q8)
-2019-10-02 15:51:53,185 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\productions\view_production_item.html", line 3, in top-level template code
+    {% import "_macros.html" as macros %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 4, in block "doc"
+    {%- block html %}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 20, in block "html"
+    {% block body -%}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\base.html", line 25, in block "body"
+    {% block content -%}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\base.html", line 171, in block "content"
+    {% block app_content %}{% endblock %}
+  File "C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\productions\view_production_item.html", line 12, in block "app_content"
+    {{ wtf.quick_form(form, button_map={'submit' : 'primary'}) }}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
+    rv = self._func(*arguments)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 205, in template
+    {{ form_field(field,
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\jinja2\runtime.py", line 579, in _invoke
+    rv = self._func(*arguments)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\flask_bootstrap\templates\bootstrap\wtf.html", line 123, in template
+    {{field(class="form-control", **kwargs)|safe}}
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\wtforms\fields\core.py", line 155, in __call__
+    return self.meta.render_field(self, kwargs)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\wtforms\meta.py", line 56, in render_field
+    return field.widget(field, **render_kw)
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\wtforms\widgets\core.py", line 323, in __call__
+    for val, label, selected in field.iter_choices():
+  File "c:\users\cfaro\pycharmprojects\atelier_chocolat\venv\lib\site-packages\wtforms\ext\sqlalchemy\fields.py", line 108, in iter_choices
+    yield (pk, self.get_label(obj), obj == self.data)
+TypeError: 'list' object is not callable
+2019-10-03 14:28:47,799 INFO: L'Atelier Chocolat [in C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\__init__.py:82]

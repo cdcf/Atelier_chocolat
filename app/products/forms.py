@@ -48,3 +48,12 @@ class EditProductForm(FlaskForm):
     def __init__(self, original_name, *args, **kwargs):
         super(EditProductForm, self).__init__(*args, **kwargs)
         self.original_name = original_name
+
+
+class ViewProductForm(FlaskForm):
+    product_family_id = QuerySelectField('Production', validators=[DataRequired()],
+                                         query_factory=get_product_family,
+                                         allow_blank=True,
+                                         get_label='name',
+                                         blank_text=u'-- Choisissez une production --')
+    submit = SubmitField('Rechercher')

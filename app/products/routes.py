@@ -1,9 +1,10 @@
+from sqlalchemy import func
 from flask import render_template, flash, redirect, url_for, request, current_app
 from flask_login import login_required
 from app import db
 from app.products import bp
-from app.products.forms import ProductForm, EditProductForm
-from app.models import Product
+from app.products.forms import ProductForm, EditProductForm, ViewProductForm
+from app.models import Product, ProductFamily
 
 
 @bp.route('/add_product', methods=['GET', 'POST'])

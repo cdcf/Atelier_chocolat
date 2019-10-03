@@ -9,7 +9,15 @@
         <tr>
             <div class="row">
                 <div class="col-sm-4">
-                    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+                    <form class="form form-horizontal" method="post" role="form">
+                        {{ form.hidden_tag() }}
+                        {{ wtf.form_errors(form, hiddens="only") }}
+                        {{ wtf.form_field(form.production_id) }}
+                        {{ wtf.form_field(form.product_family_id) }}
+                        {{ wtf.form_field(form.product_id) }}
+                        {{ wtf.form_field(form.quantity, placeholder='Quantité en kg') }}
+                        {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }}
+                    </form>
                 </div>
             </div>
         </tr>

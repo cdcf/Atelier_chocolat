@@ -42,6 +42,13 @@
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
         <item name="product: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="app.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="production_item: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -193,7 +200,14 @@
       <workItem from="1570009941147" duration="596000" />
       <workItem from="1570020837784" duration="1659000" />
       <workItem from="1570022678287" duration="1809000" />
-      <workItem from="1570024503861" duration="1532000" />
+      <workItem from="1570024503861" duration="1692000" />
+      <workItem from="1570026311810" duration="1001000" />
+      <workItem from="1570087547084" duration="1783000" />
+      <workItem from="1570089387841" duration="1863000" />
+      <workItem from="1570091282455" duration="1779000" />
+      <workItem from="1570093097924" duration="214000" />
+      <workItem from="1570103055529" duration="1783000" />
+      <workItem from="1570104864134" duration="1427000" />
     </task>
     <servers />
   </component>

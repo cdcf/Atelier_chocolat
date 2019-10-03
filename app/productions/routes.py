@@ -59,10 +59,20 @@ def edit_production(id):
                            productions=productions, pagination=pagination, id=id)
 
 
-@bp.route('/view_production/<id>', methods=['GET'])
+@bp.route('/view_production_item', methods=['GET', 'POST'])
 @login_required
-def view_production(id):
-    return render_template('productions/view_production.html', title='Afficher une production', id=id)
+def view_production_item():
+    production_item_search = ProductionItem.query
+    form = ViewProductionForm()
+    if form.validate_on_submit():
+        production = form.production_id.data
+        production_item_search = production_item_search.filter(ProductionItem.production_id == production.id).order_by(
+            ProductionItem.product_family_id.asc())
+    page = request.args.get('page', 1, type=int)
+    pagination = production_item_search.paginate(page, 6, False)
+    production_items = pagination.items
+    return render_template('productions/view_production_item.html', title='Afficher une production',
+                           production_items=production_items, pagination=pagination, form=form)
 
 
 @bp.route('/list_of_productions', methods=['GET', 'POST'])

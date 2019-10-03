@@ -67,7 +67,7 @@ class ProductionItemForm(FlaskForm):
                                   query_factory=get_products,
                                   allow_blank=True,
                                   get_label='name',
-                                  blank_text=u'-- Choisissez une produit --',
+                                  blank_text=u'-- Choisissez un produit --',
                                   id='select_product')
-    quantity = DecimalField('Quantité', validators=[DataRequired()])
+    quantity = DecimalField('Quantité (kg)', validators=[DataRequired()])
     submit = SubmitField('Ajouter')

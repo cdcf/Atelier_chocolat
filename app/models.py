@@ -104,7 +104,7 @@ class ProductionItem(db.Model):
     production_id = db.Column(db.Integer, db.ForeignKey('production.id'))
     product_family_id = db.Column(db.Integer, db.ForeignKey('product_family.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('product.id'))
-    quantity = db.Column(db.DECIMAL(2, 0))
+    quantity = db.Column(db.DECIMAL(6, 3))
 
     def __repr__(self):
         return '<ProductionItem {}>'.format(self.id)

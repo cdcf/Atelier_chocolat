@@ -3,20 +3,13 @@
 {% import "_macros.html" as macros %}
 
 {% block app_content %}
-    <h1>Editer la production # {{ id }}</h1>
+    <h1>Détails de production</h1>
     <hr>
     <table class="table table-hover">
         <tr>
             <div class="row">
                 <div class="col-sm-4">
-                    <form class="form form-horizontal" method="post" role="form">
-                        {{ form.hidden_tag() }}
-                        {{ wtf.form_errors(form, hiddens="only") }}
-                        {{ wtf.form_field(form.name) }}
-                        {{ wtf.form_field(form.date) }}
-                        {{ wtf.form_field(form.comment) }}
-                        {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }}
-                    </form>
+                    {{ wtf.quick_form(form, button_map={'submit' : 'primary'}) }}
                 </div>
             </div>
             <br>
@@ -37,30 +30,12 @@
         <tr>
             <div class="col-sm-6">
                 <div class="pagination">
-                    {% for production in productions %}
-                        {% include 'productions/_production.html' %}
+                    {% for production_item in production_items %}
+                        {% include 'productions/_production_item.html' %}
                     {% endfor %}
-                {{ macros.pagination_widget(pagination, 'productions.edit_production', id=id) }}
+                {{ macros.pagination_widget(pagination, 'productions.view_production_item', id=id) }}
                 </div>
             </div>
         </tr>
-
     </table>
-{% endblock %}
-
-{% block scripts %}
-    {{ super() }}
-    {{ moment.include_moment() }}
-    {# script to customize the date picker #}
-    <script src="{{ url_for('static', filename='bootstrap-datetimepicker.min.js') }}"></script>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datetimepicker.min.css') }}" />
-    {# Script to manage the date picker #}
-    <script type="text/javascript">
-        $(function () {
-            $('#date_picker').datetimepicker({
-                format: 'DD/MM/YYYY',
-                locale: 'fr'
-            });
-        });
-    </script>
 {% endblock %}
