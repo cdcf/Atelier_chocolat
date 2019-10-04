@@ -77,19 +77,20 @@
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app.db" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/static/vendor/fontawesome-free" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="two.files.diff.last.used.file" value="$USER_HOME$/Downloads/t-e-manager-master/app/templates/expenses/_expense.html" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app" />
-      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\users" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\static\vendor\fontawesome-free" />
       <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates" />
       <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\static" />
       <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app" />
+      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\users" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -212,6 +213,10 @@
       <workItem from="1570109361027" duration="1030000" />
       <workItem from="1570110516219" duration="23000" />
       <workItem from="1570110923160" duration="1572000" />
+      <workItem from="1570175745529" duration="400000" />
+      <workItem from="1570196512945" duration="1779000" />
+      <workItem from="1570198321145" duration="1782000" />
+      <workItem from="1570200129451" duration="1704000" />
     </task>
     <servers />
   </component>

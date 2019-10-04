@@ -9,21 +9,14 @@
         <tr>
             <div class="row">
                 <div class="col-sm-4">
-                    <form class="form form-horizontal" method="post" role="form">
-                        {{ form.hidden_tag() }}
-                        {{ wtf.form_errors(form, hiddens="only") }}
-                        {{ wtf.form_field(form.name) }}
-                        {{ wtf.form_field(form.date) }}
-                        {{ wtf.form_field(form.comment) }}
-                        {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }}
-                    </form>
+                    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+                    <form method="post" action="{{ url_for('productions.delete_production', id=id) }}"><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></form>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-sm-6">
                     <form class="form form-horizontal" method="post" role="form">
-                    <a action="{{ url_for('productions.delete_production', id=id) }}"><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></a>
                     <a action="{{ url_for('productions.add_production_item') }}"><button type="submit" class="btn btn-warning"><i class="fas fa-fw fa-cart-arrow-down"></i></button></a>
                     <a action="{{ url_for('productions.view_production_item') }}"><button type="submit" class="btn btn-outline-dark"><i class="fas fa-fw fa-exchange-alt"></i></button></a>
                     <a action="{{ url_for('productions.view_production_item') }}"><button type="submit" class="btn btn-info"><i class="fas fa-fw fa-fire-alt"></i></button></a>

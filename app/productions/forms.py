@@ -39,8 +39,7 @@ class ViewProductionForm(FlaskForm):
                                      query_factory=get_productions,
                                      allow_blank=True,
                                      get_label='id',
-                                     blank_text=u'-- Choisissez une production --',
-                                     id='select_production')
+                                     blank_text=u'-- Choisissez une production --')
     submit = SubmitField('Rechercher')
 
 

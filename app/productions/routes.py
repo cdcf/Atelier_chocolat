@@ -47,7 +47,7 @@ def edit_production(id):
         db.session.add(production)
         db.session.commit()
         flash('Vos modifications ont bien été enregistrées', 'success')
-        return redirect(url_for('productions.edit_production', id=id))
+        return redirect(url_for('productions.add_production'))
     elif request.method == 'GET':
         form.name.data = production.name
         form.date.data = production.date
@@ -67,7 +67,7 @@ def view_production_item():
     if form.validate_on_submit():
         production = form.production_id.data
         production_item_search = production_item_search.filter(ProductionItem.production_id == production.id).order_by(
-            ProductionItem.product_family_id.asc())
+            ProductionItem.production_production_item.id.asc())
     page = request.args.get('page', 1, type=int)
     pagination = production_item_search.paginate(page, 6, False)
     production_items = pagination.items
