@@ -30,7 +30,6 @@
     <index id="17" parent="6" name="sqlite_autoindex_alembic_version_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version_num</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="18" parent="6" name="alembic_version_pkc">
@@ -57,7 +56,6 @@
     </column>
     <index id="23" parent="7" name="ix_currency_name">
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="24" parent="7">
@@ -124,12 +122,10 @@
     </column>
     <index id="39" parent="9" name="ix_product_name">
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="40" parent="9" name="ix_product_origin">
       <ColNames>origin</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="41" parent="9">
       <ColNames>id</ColNames>
@@ -161,7 +157,6 @@
     </column>
     <index id="48" parent="10" name="ix_product_family_name">
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="49" parent="10">
@@ -195,15 +190,12 @@
     </column>
     <index id="56" parent="11" name="ix_production_date">
       <ColNames>date</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="57" parent="11" name="ix_production_name">
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="58" parent="11" name="ix_production_timestamp">
       <ColNames>timestamp</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="59" parent="11">
       <ColNames>id</ColNames>
@@ -305,7 +297,6 @@
     </column>
     <index id="82" parent="14" name="ix_supplier_name">
       <ColNames>name</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="83" parent="14">
@@ -343,21 +334,17 @@
     </column>
     <index id="91" parent="15" name="ix_user_username">
       <ColNames>username</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="92" parent="15" name="ix_user_email">
       <ColNames>email</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="93" parent="15" name="ix_user_first_name">
       <ColNames>first_name</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="94" parent="15" name="ix_user_second_name">
       <ColNames>second_name</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="95" parent="15">
       <ColNames>id</ColNames>
