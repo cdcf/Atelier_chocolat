@@ -109,14 +109,13 @@
   </component>
   <component name="RunManager">
     <configuration name="Atelier_chocolat" type="Python.FlaskServer">
-      <option name="flaskDebug" value="true" />
       <module name="Atelier_chocolat" />
-      <option name="target" value="$PROJECT_DIR$/atelier_chocolat.py" />
+      <option name="target" value="$PROJECT_DIR$/app/__init__.py" />
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -242,6 +241,7 @@
       <workItem from="1570550162944" duration="1712000" />
       <workItem from="1570551900770" duration="9000" />
       <workItem from="1570551939154" duration="90000" />
+      <workItem from="1570552160886" duration="16000" />
     </task>
     <servers />
   </component>
