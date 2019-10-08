@@ -13,13 +13,22 @@
                 <li class="breadcrumb-item active"><a href="{{ url_for('productions.view_production_item') }}">Détail d'une production</a></li>
                 <li class="breadcrumb-item active"><a href="{{ url_for('productions.list_of_productions') }}">Liste des productions</a></li>
             </ol>
-            <h1>Ajouter un produit à une production</h1>
+            <h1>Editer le produit d'une production</h1>
             <hr>
             <table class="table table-hover">
                 <tr>
                     <div class="row">
                         <div class="col-sm-6">
                             {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+                            <p></p>
+                            <form method="post" action="{{ url_for('productions.delete_production_item', id=id) }}"><a><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></a></form>
+                            <a href="{{ url_for('productions.add_production_item') }}"><button type="submit" class="btn btn-warning"><i class="fas fa-fw fa-cart-arrow-down"></i></button></a>
+                            <a href="{{ url_for('productions.view_production_item', id=id) }}"><button type="submit" class="btn btn-outline-dark"><i class="fas fa-fw fa-exchange-alt"></i></button></a>
+                            <a href="{{ url_for('productions.view_production_item', id=id) }}"><button type="submit" class="btn btn-info"><i class="fas fa-fw fa-fire-alt"></i></button></a>
+                            <a href="{{ url_for('productions.view_production_item', id=id) }}"><button type="submit" class="btn btn-danger"><i class="fas fa-fw fa-life-ring"></i></button></a>
+                            <a href="{{ url_for('productions.view_production_item', id=id) }}"><button type="submit" class="btn btn-success"><i class="fas fa-fw fa-hammer"></i></button></a>
+                            <a href="{{ url_for('productions.view_production_item', id=id) }}"><button type="submit" class="btn btn-primary"><i class="fas fa-fw fa-thermometer-half"></i></button></a>
+                            <a href="{{ url_for('productions.view_production_item', id=id) }}"><button type="submit" class="btn btn-dark"><i class="fas fa-fw fa-flask"></i></button></a>
                         </div>
                     </div>
                 </tr>

@@ -34,21 +34,6 @@ class EditProductionForm(FlaskForm):
     submit = SubmitField('Enregistrer')
 
 
-class ViewProductionForm(FlaskForm):
-    production_id = QuerySelectField('Production', validators=[DataRequired()],
-                                     query_factory=get_productions,
-                                     allow_blank=True,
-                                     get_label='id',
-                                     blank_text=u'-- Choisissez une production --')
-    submit = SubmitField('Rechercher')
-
-
-class ListProductionForm(FlaskForm):
-    date_from = DateField('Du', format='%d/%m/%Y', validators=[DataRequired()], id='from_date_picker')
-    date_to = DateField('Au', format='%d/%m/%Y', validators=[DataRequired()], id='to_date_picker')
-    submit = SubmitField('Rechercher')
-
-
 class ProductionItemForm(FlaskForm):
     production_id = QuerySelectField('Production', validators=[DataRequired()],
                                      query_factory=get_productions,
@@ -69,4 +54,42 @@ class ProductionItemForm(FlaskForm):
                                   blank_text=u'-- Choisissez un produit --',
                                   id='select_product')
     quantity = DecimalField('Quantité (kg)', validators=[DataRequired()])
-    submit = SubmitField('Ajouter')
+    submit = SubmitField('Enregistrer')
+
+
+class EditProductionItemForm(FlaskForm):
+    production_id = QuerySelectField('Production', validators=[DataRequired()],
+                                     query_factory=get_productions,
+                                     allow_blank=True,
+                                     get_label='id',
+                                     blank_text=u'-- Choisissez une production --',
+                                     id='select_production')
+    product_family_id = QuerySelectField('Famille de Produit', validators=[DataRequired()],
+                                         query_factory=get_product_families,
+                                         allow_blank=True,
+                                         get_label='name',
+                                         blank_text=u'-- Choisissez une famille --',
+                                         id='select_product_family')
+    product_id = QuerySelectField('Produit', validators=[DataRequired()],
+                                  query_factory=get_products,
+                                  allow_blank=True,
+                                  get_label='name',
+                                  blank_text=u'-- Choisissez un produit --',
+                                  id='select_product')
+    quantity = DecimalField('Quantité (kg)', validators=[DataRequired()])
+    submit = SubmitField('Enregistrer')
+
+
+class ViewProductionForm(FlaskForm):
+    production_id = QuerySelectField('Production', validators=[DataRequired()],
+                                     query_factory=get_productions,
+                                     allow_blank=True,
+                                     get_label='id',
+                                     blank_text=u'-- Choisissez une production --')
+    submit = SubmitField('Rechercher')
+
+
+class ListProductionForm(FlaskForm):
+    date_from = DateField('Du', format='%d/%m/%Y', validators=[DataRequired()], id='from_date_picker')
+    date_to = DateField('Au', format='%d/%m/%Y', validators=[DataRequired()], id='to_date_picker')
+    submit = SubmitField('Rechercher')

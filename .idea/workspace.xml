@@ -43,13 +43,6 @@
         <item name="app.db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="product: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="app.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
         <item name="production_item: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
     </expand>
@@ -136,7 +129,17 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4fffcec8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4fffcec8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@19a80885" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -228,6 +231,17 @@
       <workItem from="1570200129451" duration="1704000" />
       <workItem from="1570440646743" duration="550000" />
       <workItem from="1570442476764" duration="529000" />
+      <workItem from="1570454269993" duration="530000" />
+      <workItem from="1570454979188" duration="423000" />
+      <workItem from="1570519562507" duration="1755000" />
+      <workItem from="1570526324734" duration="531000" />
+      <workItem from="1570527989773" duration="1705000" />
+      <workItem from="1570536709614" duration="1794000" />
+      <workItem from="1570538527911" duration="957000" />
+      <workItem from="1570548351350" duration="1778000" />
+      <workItem from="1570550162944" duration="1712000" />
+      <workItem from="1570551900770" duration="9000" />
+      <workItem from="1570551939154" duration="90000" />
     </task>
     <servers />
   </component>

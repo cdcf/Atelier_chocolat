@@ -11,7 +11,9 @@
             <div class="row">
                 <div class="col-sm-4">
                     {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
-                    <form method="post" action="{{ url_for('currencies.delete_currency', id=id) }}"><button type="submit" class="btn btn-outline-danger" id="delete"><i class="fas fa-fw fa-trash"></i></button></form>
+                    <div class="btn btn-group">
+                        <form method="post" action="{{ url_for('currencies.delete_currency', id=id) }}"><button type="submit" class="btn btn-outline-danger" id="delete"><i class="fas fa-fw fa-trash"></i></button></form>
+                    </div>
                 </div>
             </div>
         </tr>

@@ -124,6 +124,7 @@ dmypy.json
 .pyre/
 
 # db
+app.db
 *.db
 migrations/
 logs/
@@ -132,3 +133,5 @@ logs/ac.log.2
 logs/ac.log.3
 logs/ac.log.4
 *.xml
+*.xml
+.idea/workspace.xml
