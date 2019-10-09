@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect, url_for, request, current_ap
 from flask_login import current_user, login_required
 from app import db
 from app.productions.forms import ProductionForm, EditProductionForm, ListProductionForm, ProductionItemForm, \
-    ViewProductionForm, EditProductionItemForm
+    SelectProductionForm, EditProductionItemForm
 from app.models import Production, ProductionItem, ProductFamily, Product
 from app.productions import bp
 
@@ -77,7 +77,7 @@ def add_production_item():
     form.product_id.choices = [(row.id, row.name) for row in Product.query.all()]
     if request.method == 'GET':
         page = request.args.get('page', 1, type=int)
-        pagination = ProductionItem.query.order_by(ProductionItem.id.asc()).paginate(page, 4, False)
+        pagination = ProductionItem.query.order_by(ProductionItem.id.asc()).paginate(page, 10, False)
         production_items = pagination.items
         return render_template('productions/add_production_item.html', title='Ajouter des produits', form=form,
                                production_items=production_items, pagination=pagination)
@@ -91,7 +91,7 @@ def add_production_item():
         flash('Les produits ont été ajoutés', 'success')
         return redirect(url_for('productions.edit_production', id=production_item.production_id))
     page = request.args.get('page', 1, type=int)
-    pagination = ProductionItem.query.order_by(ProductionItem.id.asc()).paginate(page, 4, False)
+    pagination = ProductionItem.query.order_by(ProductionItem.id.asc()).paginate(page, 10, False)
     production_items = pagination.items
     return render_template('productions/add_production_item.html', title='Ajouter des produits', form=form,
                            production_items=production_items, pagination=pagination)
@@ -112,14 +112,14 @@ def edit_production_item(id):
         db.session.add(production_item)
         db.session.commit()
         flash('Vos modifications ont bien été enregistrées', 'success')
-        return redirect(url_for('productions.view_production_item'))
+        return redirect(url_for('productions.view_production_items', id=id))
     elif request.method == 'GET':
         form.production_id.data = production_item.production_production_item
         form.product_family_id.data = production_item.product_family_production_item
         form.product_id.data = production_item.product_production_item
         form.quantity.data = production_item.quantity
     page = request.args.get('page', 1, type=int)
-    pagination = ProductionItem.query.order_by(ProductionItem.id.desc()).paginate(page, 4, False)
+    pagination = ProductionItem.query.order_by(ProductionItem.id.desc()).paginate(page, 10, False)
     production_items = pagination.items
     return render_template('productions/edit_production_item.html', title='Editer des produits', form=form,
                            production_items=production_items, pagination=pagination, id=id)
@@ -135,20 +135,31 @@ def delete_production_item(id):
     return redirect(url_for('productions.add_production_item'))
 
 
-@bp.route('/view_production_item', methods=['GET', 'POST'])
+@bp.route('/select_production_item', methods=['GET', 'POST'])
 @login_required
-def view_production_item():
+def select_production_item():
     production_item_search = ProductionItem.query.order_by(ProductionItem.production_id.asc(),
                                                            ProductionItem.product_family_id.asc())
-    form = ViewProductionForm()
+    form = SelectProductionForm()
     if form.validate_on_submit():
         production = form.production_id.data
         production_item_search = production_item_search.filter(ProductionItem.production_id == production.id)
     page = request.args.get('page', 1, type=int)
-    pagination = production_item_search.paginate(page, 6, False)
+    pagination = production_item_search.paginate(page, 10, False)
     production_items = pagination.items
-    return render_template('productions/view_production_item.html', title='Afficher une production',
+    return render_template('productions/select_production_item.html', title='Afficher une production',
                            production_items=production_items, pagination=pagination, form=form)
+
+
+@bp.route('/view_production_items/<id>', methods=['GET', 'POST'])
+@login_required
+def view_production_items(id):
+    production = Production.query.filter_by(id=id).first()
+    page = request.args.get('page', 1, type=int)
+    pagination = production.query.order_by(Production.id).paginate(page, 10, False)
+    productions = pagination.items
+    return render_template('productions/view_production_items.html', title='Voir les composants d\'une production',
+                           productions=productions, pagination=pagination, id=id)
 
 
 @bp.route('/list_of_productions', methods=['GET', 'POST'])

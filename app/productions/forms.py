@@ -80,7 +80,7 @@ class EditProductionItemForm(FlaskForm):
     submit = SubmitField('Enregistrer')
 
 
-class ViewProductionForm(FlaskForm):
+class SelectProductionForm(FlaskForm):
     production_id = QuerySelectField('Production', validators=[DataRequired()],
                                      query_factory=get_productions,
                                      allow_blank=True,

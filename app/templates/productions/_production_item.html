@@ -3,15 +3,13 @@
         <td>
             <div class="row">
                 <div class="col-sm-6">
-                    <p><b>Lot # / Production:</b> <a href="{{ url_for('productions.edit_production', id=production_item.production_id) }}"> {{ production_item.production_id }} - {{ production_item.production_production_item.name }}</a><br>
-                    <b>Famille:</b> {{ production_item.product_family_production_item.name }}<br>
+                    <p><b>Famille:</b> {{ production_item.product_family_production_item.name }}<br>
                     <b>Produit:</b> {{ production_item.product_production_item.name }}<br>
                     <b>Quantité:</b> {{ production_item.quantity }} kg</p>
                 </div>
                 <div class="col-sm-2">
                     <div class="btn btn-group">
                         <a href="{{ url_for('productions.edit_production_item', id=production_item.id) }}"><button class="btn btn-outline-primary"><i class="fas fa-fw fa-pen"></i></button></a>
-                        <a href="{{ url_for('productions.view_production_item') }}"><button class="btn btn-outline-secondary"><i class="fas fa-fw fa-search"></i></button></a>
                     </div>
                 </div>
             </div>
