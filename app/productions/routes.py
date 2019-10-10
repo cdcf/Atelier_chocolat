@@ -1,11 +1,17 @@
 from sqlalchemy import func
-from flask import render_template, flash, redirect, url_for, request, current_app, jsonify
+from flask import g, render_template, flash, redirect, url_for, request, current_app, jsonify
 from flask_login import current_user, login_required
 from app import db
 from app.productions.forms import ProductionForm, EditProductionForm, ListProductionForm, ProductionItemForm, \
     SelectProductionForm, EditProductionItemForm
 from app.models import Production, ProductionItem, ProductFamily, Product
 from app.productions import bp
+from flask_babel import get_locale
+
+
+@bp.before_request
+def before_request():
+    g.locale = str(get_locale())
 
 
 @bp.route('/_get_products')

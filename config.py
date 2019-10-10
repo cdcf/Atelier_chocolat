@@ -21,3 +21,4 @@ class Config(object):
     PRODUCTS_PER_PAGE = 10
     PRODUCT_FAMILIES_PER_PAGE = 10
     SUPPLIERS_PER_PAGE = 10
+    LANGUAGES = ['en', 'fr']

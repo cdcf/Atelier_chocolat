@@ -158,3 +158,5 @@ logs/ac.log.4
 >>>>>>> 03720e3c5540bc01ff42cbcf3e17349732aecb57
 .idea/workspace.xml
 *.db
+app.db
+.idea/workspace.xml

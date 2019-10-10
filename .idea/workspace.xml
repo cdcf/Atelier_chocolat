@@ -53,15 +53,19 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/templates/productions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/static" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\productions" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\static" />
+      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\static\js" />
+      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\static\css" />
       <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\productions" />
       <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\static" />
+      <recent name="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\app\templates\productions" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -123,6 +127,14 @@
       <workItem from="1570629518847" duration="646000" />
       <workItem from="1570635979430" duration="7000" />
       <workItem from="1570636994930" duration="7000" />
+      <workItem from="1570692857358" duration="1782000" />
+      <workItem from="1570694664673" duration="1780000" />
+      <workItem from="1570697058330" duration="1778000" />
+      <workItem from="1570698865068" duration="1781000" />
+      <workItem from="1570700679015" duration="1268000" />
+      <workItem from="1570711719430" duration="1446000" />
+      <workItem from="1570714010636" duration="2186000" />
+      <workItem from="1570719921816" duration="53000" />
     </task>
     <servers />
   </component>
@@ -134,7 +146,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
