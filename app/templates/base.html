@@ -180,8 +180,8 @@
     {{ super() }}
     {{ moment.include_moment() }}
     {# script to customize the date picker #}
-    <script src="{{ url_for('static', filename='bootstrap-datetimepicker.min.js') }}"></script>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datetimepicker.min.css') }}" />
+    <script charset="UTF-8" src="{{ url_for('static', filename='js/bootstrap-datepicker.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap-datepicker3.min.css') }}" />
 
       <!-- Bootstrap core JavaScript-->
   <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
