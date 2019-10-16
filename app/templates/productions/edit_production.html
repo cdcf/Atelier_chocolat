@@ -23,7 +23,7 @@
                             <p></p>
                             <form method="post" action="{{ url_for('productions.delete_production', id=id) }}"><a><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></a></form>
                             <a href="{{ url_for('productions.add_production_item') }}"><button type="submit" class="btn btn-warning"><i class="fas fa-fw fa-cart-arrow-down"></i></button></a>
-                            <a href="{{ url_for('productions.select_production_item', id=id) }}"><button type="submit" class="btn btn-outline-dark"><i class="fas fa-fw fa-exchange-alt"></i></button></a>
+                            <a href="{{ url_for('productions.add_production_item', id=id) }}"><button type="submit" class="btn btn-outline-dark"><i class="fas fa-fw fa-exchange-alt"></i></button></a>
                             <a href="{{ url_for('productions.select_production_item', id=id) }}"><button type="submit" class="btn btn-info"><i class="fas fa-fw fa-fire-alt"></i></button></a>
                             <a href="{{ url_for('productions.select_production_item', id=id) }}"><button type="submit" class="btn btn-danger"><i class="fas fa-fw fa-life-ring"></i></button></a>
                             <a href="{{ url_for('productions.select_production_item', id=id) }}"><button type="submit" class="btn btn-success"><i class="fas fa-fw fa-hammer"></i></button></a>

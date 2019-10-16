@@ -13,7 +13,7 @@
                 <li class="breadcrumb-item active"><a href="{{ url_for('productions.select_production_item') }}">Détail d'une production</a></li>
                 <li class="breadcrumb-item active"><a href="{{ url_for('productions.list_of_productions') }}">Liste des productions</a></li>
             </ol>
-            <h1>Voir les composants de la production # {{ id }} </h1>
+            <h1>Voir les composants de la production # {{ id }} {{ name }}</h1>
             <hr>
             <table class="table table-hover">
                 <tr>
@@ -23,7 +23,6 @@
                                 {% for production_item in production_items %}
                                     {% include 'productions/_production_item.html' %}
                                 {% endfor %}
-                            {{ macros.pagination_widget(pagination, 'productions.select_production_item', id=id) }}
                             </div>
                         </div>
                         <div class="col-sm-2"></div>

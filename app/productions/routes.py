@@ -81,6 +81,7 @@ def add_production_item():
     form = ProductionItemForm()
     form.product_family_id.choices = [(row.id, row.name) for row in ProductFamily.query.all()]
     form.product_id.choices = [(row.id, row.name) for row in Product.query.all()]
+    new_qty = Production.quantity
     if request.method == 'GET':
         page = request.args.get('page', 1, type=int)
         pagination = ProductionItem.query.order_by(ProductionItem.id.asc()).paginate(page, 10, False)
@@ -92,6 +93,7 @@ def add_production_item():
                                          product_family_id=form.product_family_id.data.id,
                                          product_id=form.product_id.data.id,
                                          quantity=form.quantity.data)
+        #TODO: add code to sum item quantities to header section like new_qty += ProductionItem.quantity
         db.session.add(production_item)
         db.session.commit()
         flash('Les produits ont été ajoutés', 'success')
@@ -115,10 +117,11 @@ def edit_production_item(id):
         production_item.product_family_id = form.product_family_id.data.id
         production_item.product_id = form.product_id.data.id
         production_item.quantity = form.quantity.data
+        Production.quantity += ProductionItem.quantity
         db.session.add(production_item)
         db.session.commit()
         flash('Vos modifications ont bien été enregistrées', 'success')
-        return redirect(url_for('productions.view_production_items', id=id))
+        return redirect(url_for('productions.select_production_item', id=production_item.production_id))
     elif request.method == 'GET':
         form.production_id.data = production_item.production_production_item
         form.product_family_id.data = production_item.product_family_production_item
@@ -155,17 +158,6 @@ def select_production_item():
     production_items = pagination.items
     return render_template('productions/select_production_item.html', title='Afficher une production',
                            production_items=production_items, pagination=pagination, form=form)
-
-
-@bp.route('/view_production_items/<id>', methods=['GET', 'POST'])
-@login_required
-def view_production_items(id):
-    production = Production.query.filter_by(id=id).first()
-    page = request.args.get('page', 1, type=int)
-    pagination = production.query.order_by(Production.id).paginate(page, 10, False)
-    productions = pagination.items
-    return render_template('productions/view_production_items.html', title='Voir les composants d\'une production',
-                           productions=productions, pagination=pagination, id=id)
 
 
 @bp.route('/list_of_productions', methods=['GET', 'POST'])

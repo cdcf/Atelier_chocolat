@@ -35,6 +35,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="app" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="production: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -49,11 +56,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="e4f8a466-5f15-49da-a43a-e02b2e733410" />
+  </component>
   <component name="ProjectId" id="1RxO2oNZT2jgUEGfPOweyOmQLEd" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/static" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -82,12 +93,13 @@
   </component>
   <component name="RunManager">
     <configuration name="Atelier_chocolat" type="Python.FlaskServer">
+      <option name="flaskDebug" value="true" />
       <module name="Atelier_chocolat" />
-      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="target" value="$PROJECT_DIR$/Atelier_chocolat.py" />
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\cfaro\PycharmProjects\Atelier_chocolat\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -101,7 +113,17 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@29870ef0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@29870ef0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@440e3b2" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -135,6 +157,18 @@
       <workItem from="1570711719430" duration="1446000" />
       <workItem from="1570714010636" duration="2186000" />
       <workItem from="1570719921816" duration="53000" />
+      <workItem from="1570781097695" duration="1209000" />
+      <workItem from="1570795946029" duration="1782000" />
+      <workItem from="1570797754129" duration="1313000" />
+      <workItem from="1571045205243" duration="597000" />
+      <workItem from="1571056244283" duration="1501000" />
+      <workItem from="1571058106902" duration="1496000" />
+      <workItem from="1571124818068" duration="1523000" />
+      <workItem from="1571152609602" duration="154000" />
+      <workItem from="1571153671576" duration="1574000" />
+      <workItem from="1571232368525" duration="258000" />
+      <workItem from="1571233760960" duration="475000" />
+      <workItem from="1571238510403" duration="241000" />
     </task>
     <servers />
   </component>
@@ -153,5 +187,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Atelier_chocolat$Atelier_chocolat.coverage" NAME="Atelier_chocolat Coverage Results" MODIFIED="1571232594141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

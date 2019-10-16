@@ -91,6 +91,7 @@ class Production(db.Model):
     date = db.Column(db.Date, index=True)
     name = db.Column(db.String(64), index=True)
     comment = db.Column(db.Text())
+    quantity = db.Column(db.DECIMAL(6, 3))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     production_items = db.relationship('ProductionItem', backref='production_production_item', lazy='dynamic')
