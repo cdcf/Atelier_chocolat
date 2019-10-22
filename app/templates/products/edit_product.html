@@ -3,41 +3,51 @@
 {% import "_macros.html" as macros %}
 
 {% block app_content %}
-    <h1>Editer un Produit</h1>
-    <hr>
-    <table class="table table-hover">
-        <tr>
-            <div class="row">
-                <div class="col-sm-4">
-                    {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
-                    <form method="post" action="{{ url_for('products.delete_product', id=id) }}"><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></form>
-                </div>
-                <div class="col-sm-4">
-                    <!-- colorpicker element -->
-                    <div class="colorpicker" style="display:none">
-                        <canvas id="picker" var="1" width="300" height="300"></canvas>
+<div id="wrapper">
+    <div id="content-wrapper">
+        <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a href="{{ url_for('main.index') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="{{ url_for('products.add_product') }}">Ajouter un produit</a></li>
+            <li class="breadcrumb-item active"><a href="{{ url_for('products.list_of_products') }}">Liste des produits</a></li>
+        </ol>
+        <h1>Editer un Produit</h1>
+        <hr>
+        <table class="table table-hover">
+            <tr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+                        <P></P>
+                        <form method="post" action="{{ url_for('products.delete_product', id=id) }}"><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></form>
+                    </div>
+                    <div class="col-sm-4">
+                        <!-- colorpicker element -->
+                        <div class="colorpicker" style="display:none">
+                            <canvas id="picker" var="1" width="300" height="300"></canvas>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </tr>
-        <tr>
-            <div class="col-sm-6">
-                <div class="pagination">
-                    {% for product in products %}
-                        {% include 'products/_product.html' %}
-                    {% endfor %}
-                    {{ macros.pagination_widget(pagination, 'products.edit_product', id=id) }}
+            </tr>
+            <tr>
+                <div class="col-sm-6">
+                    <div class="pagination">
+                        {% for product in products %}
+                            {% include 'products/_product.html' %}
+                        {% endfor %}
+                        {{ macros.pagination_widget(pagination, 'products.edit_product', id=id) }}
+                    </div>
                 </div>
-            </div>
-        </tr>
-    </table>
-
+            </tr>
+        </table>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
     {{ super() }}
-    {# Script to manage the Guest toggle button #}
-
 
     <!-- add styles -->
     <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet" type="text/css" />

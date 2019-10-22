@@ -3,26 +3,39 @@
 {% import "_macros.html" as macros %}
 
 {% block app_content %}
-    <h1>Editer une famille de produit</h1>
-    <hr>
-    <table class="table table-hover">
-        <tr>
-            <div class="row">
-                <div class="col-sm-4">
+<div id="wrapper">
+    <div id="content-wrapper">
+        <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a href="{{ url_for('main.index') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="{{ url_for('product_families.add_product_family') }}">Ajouter une famille de produits</a></li>
+            <li class="breadcrumb-item active"><a href="{{ url_for('product_families.list_of_product_families') }}">Liste des familles de produits</a></li>
+        </ol>
+        <h1>Editer une famille de produit</h1>
+        <hr>
+        <table class="table table-hover">
+            <tr>
+                <div class="row">
+                    <div class="col-sm-4">
                         {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+                        <p></p>
                         <form method="post" action="{{ url_for('product_families.delete_product_family', id=id) }}"><button type="submit" class="btn btn-outline-danger" id="delete"><i class="fas fa-fw fa-trash"></i></button></form>
+                    </div>
                 </div>
-            </div>
-        </tr>
-        <tr>
-            <div class="col-md-6">
-                <div class="pagination">
-                    {% for product_family in product_families %}
-                        {% include 'product_families/_product_family.html' %}
-                    {% endfor %}
-                    {{ macros.pagination_widget(pagination, 'product_families.edit_product_family', id=id) }}
+            </tr>
+            <tr>
+                <div class="col-md-6">
+                    <div class="pagination">
+                        {% for product_family in product_families %}
+                            {% include 'product_families/_product_family.html' %}
+                        {% endfor %}
+                        {{ macros.pagination_widget(pagination, 'product_families.edit_product_family', id=id) }}
+                    </div>
                 </div>
-            </div>
-        </tr>
-    </table>
+            </tr>
+        </table>
+        </div>
+    </div>
+</div>
 {% endblock %}
