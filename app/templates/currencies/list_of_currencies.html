@@ -3,20 +3,32 @@
 {% import "_macros.html" as macros %}
 
 {% block app_content %}
-    <h1>Liste des devises</h1>
-    <hr>
-    <table class="table table-hover">
-        <tr>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="pagination">
-                        {% for currency in currencies %}
-                            {% include 'currencies/_currency.html' %}
-                        {% endfor %}
-                        {{ macros.pagination_widget(pagination, 'currencies.list_of_currencies') }}
+<div id="wrapper">
+    <div id="content-wrapper">
+        <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a href="{{ url_for('main.index') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="{{ url_for('currencies.add_currency') }}">Ajouter une devise</a></li>
+            <li class="breadcrumb-item active"><a href="{{ url_for('currencies.list_of_currencies') }}">Liste des devises</a></li>
+        </ol>
+        <h1>Liste des devises</h1>
+        <hr>
+        <table class="table table-hover">
+            <tr>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="pagination">
+                            {% for currency in currencies %}
+                                {% include 'currencies/_currency.html' %}
+                            {% endfor %}
+                            {{ macros.pagination_widget(pagination, 'currencies.list_of_currencies') }}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </tr>
-    </table>
+            </tr>
+        </table>
+        </div>
+    </div>
+</div>
 {% endblock %}

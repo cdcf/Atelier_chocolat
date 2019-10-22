@@ -7,51 +7,49 @@
 <div id="wrapper">
     <div id="content-wrapper">
         <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a href="{{ url_for('main.index') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="{{ url_for('currencies.add_currency') }}">Ajouter une devise</a></li>
+            <li class="breadcrumb-item active"><a href="{{ url_for('currencies.list_of_currencies') }}">Liste des devises</a></li>
+        </ol>
 
-            <!-- Breadcrumbs-->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="{{ url_for('main.index') }}">Dashboard</a>
-                </li>
-                <li class="breadcrumb-item active"><b>Ajouter une devise</b></li>
-            </ol>
-
-            <!-- add currency quick form-->
-            <table class="table table-hover">
-                <tr>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
-                        </div>
+        <!-- add currency quick form-->
+        <table class="table table-hover">
+            <tr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
                     </div>
-                </tr>
-            </table>
-
-                <!-- add list of existing currencies-->
-            <div class="card mb-3">
-              <div class="card-header">
-                <i class="fas fa-table"></i>
-                liste des devises</div>
-              <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                          <tr>
-                            <th>Devise</th>
-                            <th>Description</th>
-                            <th>Défaut</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-
-                                {% for currency in currencies %}
-                                    {% include 'currencies/_currency.html' %}
-                                {% endfor %}
-                    {{ macros.pagination_widget(pagination, 'currencies.add_currency') }}
-                    </table>
                 </div>
-              </div>
+            </tr>
+        </table>
+
+            <!-- add list of existing currencies-->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            liste des devises</div>
+          <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Devise</th>
+                        <th>Description</th>
+                        <th>Défaut</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+
+                            {% for currency in currencies %}
+                                {% include 'currencies/_currency.html' %}
+                            {% endfor %}
+                {{ macros.pagination_widget(pagination, 'currencies.add_currency') }}
+                </table>
             </div>
+          </div>
+        </div>
 
         <!-- /.container-fluid -->
         </div>
