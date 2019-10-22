@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired, ValidationError, Email, URL
+from wtforms.validators import DataRequired, ValidationError, Email, URL, Optional
 from app.models import Supplier
 
 
@@ -8,9 +8,9 @@ class SupplierForm(FlaskForm):
     name = StringField('Nom', validators=[DataRequired()])
     address = StringField('Adresse', validators=[DataRequired()])
     contact = StringField('Contact')
-    email = StringField('Email', validators=[Email()])
+    email = StringField('Email', validators=[Email(), Optional()])
     telephone = StringField('Téléphone')
-    website = StringField('Site web', validators=[URL()])
+    website = StringField('Site web', validators=[URL(), Optional()])
     submit = SubmitField('Enregistrer')
 
     def validate_name(self, name):
@@ -23,9 +23,9 @@ class EditSupplierForm(FlaskForm):
     name = StringField('Nom', validators=[DataRequired()])
     address = StringField('Adresse', validators=[DataRequired()])
     contact = StringField('Contact')
-    email = StringField('Email', validators=[Email()])
+    email = StringField('Email', validators=[Email(), Optional()])
     telephone = StringField('Téléphone')
-    website = StringField('Site web', validators=[URL()])
+    website = StringField('Site web', validators=[URL(), Optional()])
     submit = SubmitField('Enregistrer')
 
     def __init__(self, original_name, *args, **kwargs):

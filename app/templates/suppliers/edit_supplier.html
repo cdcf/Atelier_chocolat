@@ -3,36 +3,39 @@
 {% import "_macros.html" as macros %}
 
 {% block app_content %}
-    <h1>Editer un fournisseur</h1>
-    <hr>
-    <table class="table table-hover">
-        <tr>
-            <div class="row">
-                <div class="col-sm-4">
-                    <form class="form form-horizontal" method="post" role="form">
-                        {{ form.hidden_tag() }}
-                        {{ wtf.form_errors(form, hiddens="only") }}
-                        {{ wtf.form_field(form.name) }}
-                        {{ wtf.form_field(form.address) }}
-                        {{ wtf.form_field(form.contact) }}
-                        {{ wtf.form_field(form.email) }}
-                        {{ wtf.form_field(form.telephone) }}
-                        {{ wtf.form_field(form.website) }}
-                        {{ wtf.form_field(form.submit, button_map={'submit': 'primary'}) }}
-                        <form method="post" action="{{ url_for('suppliers.delete_supplier', id=supplier.id) }}"><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></form>
-                    </form>
+<div id="wrapper">
+    <div id="content-wrapper">
+        <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a href="{{ url_for('main.index') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="{{ url_for('suppliers.add_supplier') }}">Ajouter un fournisseur</a></li>
+            <li class="breadcrumb-item active"><a href="{{ url_for('suppliers.list_of_suppliers') }}">Liste des fournisseurs</a></li>
+        </ol>
+        <h1>Editer un fournisseur</h1>
+        <hr>
+        <table class="table table-hover">
+            <tr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        {{ wtf.quick_form(form, button_map={'submit': 'primary'}) }}
+                        <p></p>
+                        <form method="post" action="{{ url_for('suppliers.delete_supplier', id=id) }}"><button type="submit" class="btn btn-outline-danger"><i class="fas fa-fw fa-trash"></i></button></form>
+                    </div>
                 </div>
-            </div>
-        </tr>
-        <tr>
-            <div class="col-md-6">
-                <div class="pagination">
-                    {% for supplier in suppliers %}
-                        {% include 'suppliers/_supplier.html' %}
-                    {% endfor %}
-                    {{ macros.pagination_widget(pagination, 'suppliers.edit_supplier', id=id) }}
+            </tr>
+            <tr>
+                <div class="col-md-6">
+                    <div class="pagination">
+                        {% for supplier in suppliers %}
+                            {% include 'suppliers/_supplier.html' %}
+                        {% endfor %}
+                        {{ macros.pagination_widget(pagination, 'suppliers.edit_supplier', id=id) }}
+                    </div>
                 </div>
-            </div>
-        </tr>
-    </table>
+            </tr>
+        </table>
+        </div>
+    </div>
+</div>
 {% endblock %}
