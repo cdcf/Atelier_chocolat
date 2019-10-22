@@ -81,7 +81,6 @@ def add_production_item():
     form = ProductionItemForm()
     form.product_family_id.choices = [(row.id, row.name) for row in ProductFamily.query.all()]
     form.product_id.choices = [(row.id, row.name) for row in Product.query.all()]
-    new_qty = Production.quantity
     if request.method == 'GET':
         page = request.args.get('page', 1, type=int)
         pagination = ProductionItem.query.order_by(ProductionItem.id.asc()).paginate(page, 10, False)

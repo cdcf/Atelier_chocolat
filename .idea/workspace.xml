@@ -45,6 +45,9 @@
     </expand>
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Atelier_chocolat" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -55,6 +58,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="e4f8a466-5f15-49da-a43a-e02b2e733410" />
@@ -63,8 +67,8 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/static" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHubDesktop/GitHubDesktop.exe" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -168,7 +172,10 @@
       <workItem from="1571153671576" duration="1574000" />
       <workItem from="1571232368525" duration="258000" />
       <workItem from="1571233760960" duration="475000" />
-      <workItem from="1571238510403" duration="241000" />
+      <workItem from="1571238510403" duration="656000" />
+      <workItem from="1571239181369" duration="294000" />
+      <workItem from="1571239848747" duration="335000" />
+      <workItem from="1571735938825" duration="115000" />
     </task>
     <servers />
   </component>
